@@ -120,6 +120,8 @@ network:
 $addr
 EOF
   chmod 600 /etc/netplan/50-lab.yaml
+  # the VM leaves VirtualBox NAT with this phase, so the build-time SSH rule for the host goes too
+  ufw delete allow from 10.0.2.2 to any port 22 proto tcp >/dev/null 2>&1 || true
   echo "netplan written for $role ($ip); applies on next boot"
 }
 
