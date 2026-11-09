@@ -1,0 +1,46 @@
+# bash tests/run-all.sh  -  2026-11-09, all six VMs running
+== fw01 (pfSense)
+PASS  fw01: filter rules loaded (>20)
+PASS  fw01: DHCP server for Users running
+PASS  fw01: SNMP agent running
+PASS  fw01: remote syslog to monitor01
+== monitor01 (LibreNMS, Suricata, Wazuh manager)
+PASS  monitor01: suricata active
+PASS  monitor01: wazuh-manager active
+PASS  monitor01: rsyslog active
+PASS  monitor01: snmpd active
+PASS  monitor01: nginx active
+PASS  monitor01: Suricata local rules loaded
+PASS  monitor01: Suricata logged events in last 24 h
+PASS  monitor01: Wazuh agents srv01+dmz-web01 registered
+PASS  LibreNMS web answers (host :8030)
+PASS  SNMPv3 authPriv to 192.168.20.1 works
+PASS  SNMPv2c 'public' refused by 192.168.20.1
+PASS  SNMPv3 authPriv to 192.168.20.20 works
+PASS  SNMPv2c 'public' refused by 192.168.20.20
+PASS  SNMPv3 authPriv to 192.168.50.10 works
+PASS  SNMPv2c 'public' refused by 192.168.50.10
+== srv01
+PASS  srv01: nginx active
+PASS  srv01: wazuh-agent active
+PASS  srv01: UFW enabled
+PASS  srv01: SSH password login disabled
+PASS  srv01: SSH root login disabled
+PASS  srv01: DNS answers www.corp.lab
+PASS  srv01: connectivity matrix 9/9 as policy says
+== dmz-web01
+PASS  dmz-web01: nginx active
+PASS  dmz-web01: wazuh-agent active
+PASS  dmz-web01: UFW enabled
+PASS  dmz-web01: SSH password login disabled
+PASS  dmz-web01: SSH root login disabled
+PASS  dmz-web01: connectivity matrix 10/10 as policy says
+== kali01
+PASS  kali01: connectivity matrix 11/11 as policy says
+== client01
+PASS  client01: connectivity matrix 12/12 as policy says
+== repository
+PASS  no lab secret value in tracked files
+PASS  no private key in tracked files
+
+RESULT: 36 passed, 0 failed, 0 skipped
