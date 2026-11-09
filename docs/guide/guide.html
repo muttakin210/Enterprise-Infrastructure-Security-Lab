@@ -1,0 +1,788 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Enterprise Infrastructure &amp; Cybersecurity Lab: Complete Guide and Interview Prep</title>
+<style>
+  @page { size: A4; margin: 16mm 15mm 18mm 15mm; }
+  :root { --ink:#1b2430; --muted:#5b6675; --accent:#0a6e5c; --accent2:#0b5cad; --line:#d9dee5; --bg:#f4f6f9; --code:#0f1720; --warn:#a15c00; --bad:#b42318; }
+  * { box-sizing: border-box; }
+  body { font-family: "Segoe UI", Arial, sans-serif; color: var(--ink); font-size: 10.2pt; line-height: 1.45; margin: 0; }
+  h1 { font-size: 22pt; margin: 0 0 6px; color: var(--accent); }
+  h2 { font-size: 15.5pt; color: var(--accent); border-bottom: 2px solid var(--accent); padding-bottom: 4px; margin: 0 0 10px; }
+  h3 { font-size: 12pt; margin: 16px 0 6px; color: #0f3d36; }
+  h4 { font-size: 10.6pt; margin: 12px 0 4px; color: #0f3d36; }
+  p { margin: 5px 0 7px; }
+  ul, ol { margin: 4px 0 8px 18px; padding: 0; }
+  li { margin: 2px 0; }
+  code { font-family: Consolas, "Courier New", monospace; font-size: 9pt; background: #eef1f5; padding: 0 3px; border-radius: 3px; }
+  pre { font-family: Consolas, "Courier New", monospace; font-size: 8.4pt; line-height: 1.38; background: var(--code); color: #e6edf3; padding: 8px 10px; border-radius: 5px; white-space: pre-wrap; word-break: break-word; margin: 6px 0 10px; page-break-inside: avoid; }
+  pre .c { color: #8b98a8; }
+  table { width: 100%; border-collapse: collapse; margin: 6px 0 10px; font-size: 9pt; page-break-inside: auto; }
+  tr { page-break-inside: avoid; }
+  th { background: #e3f1ee; text-align: left; padding: 4px 6px; border: 1px solid var(--line); color: #0f3d36; }
+  td { padding: 4px 6px; border: 1px solid var(--line); vertical-align: top; }
+  .section { page-break-before: always; }
+  .box { border: 1px solid var(--line); background: var(--bg); border-radius: 6px; padding: 8px 10px; margin: 8px 0; page-break-inside: avoid; }
+  .box.tip { border-left: 4px solid var(--accent); }
+  .box.warn { border-left: 4px solid var(--warn); }
+  .box.key { border-left: 4px solid var(--accent2); }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .tool { border: 1px solid var(--line); border-radius: 6px; padding: 7px 10px 4px; margin: 0 0 10px; page-break-inside: avoid; }
+  .tool h4 { margin: 0 0 4px; font-size: 11pt; color: var(--accent); }
+  .tag { display: inline-block; font-size: 8pt; background: #e3f1ee; color: #0f3d36; border-radius: 10px; padding: 0 7px; margin-left: 4px; vertical-align: middle; }
+  .lbl { font-weight: 600; color: #0f3d36; }
+  .muted { color: var(--muted); }
+  img.fig { width: 100%; border: 1px solid var(--line); border-radius: 4px; margin: 6px 0; }
+  .cap { font-size: 8.6pt; color: var(--muted); margin-top: -2px; }
+  .cover { height: 255mm; display: flex; flex-direction: column; justify-content: space-between; }
+  .cover .band { background: linear-gradient(135deg,#0a6e5c,#0b5cad); color: #fff; padding: 26px 26px 22px; border-radius: 10px; }
+  .cover .band h1 { color: #fff; font-size: 26pt; line-height: 1.15; }
+  .cover .band p { font-size: 11.5pt; opacity: .95; }
+  .stats { display: grid; grid-template-columns: repeat(4,1fr); gap: 8px; margin-top: 14px; }
+  .stat { border: 1px solid var(--line); border-radius: 8px; padding: 8px; text-align: center; }
+  .stat b { display: block; font-size: 17pt; color: var(--accent); }
+  .toc ol { columns: 2; column-gap: 24px; font-size: 10pt; }
+  .step { border-left: 3px solid var(--accent); padding: 2px 0 2px 10px; margin: 10px 0 12px; }
+  .step h3 { margin-top: 0; }
+  .qa { margin: 0 0 8px; page-break-inside: avoid; }
+  .qa .q { font-weight: 600; color: #0f3d36; }
+  .qa .a { margin: 2px 0 0 0; }
+  .small { font-size: 8.8pt; }
+  .ok { color: var(--accent); font-weight: 600; }
+  .no { color: var(--bad); font-weight: 600; }
+</style>
+</head>
+<body>
+
+<!-- ============================== COVER ============================== -->
+<div class="cover">
+  <div>
+    <div class="band">
+      <div style="font-size:10pt;letter-spacing:2px;opacity:.85">PORTFOLIO PROJECT · COMPLETE GUIDE</div>
+      <h1>Enterprise Infrastructure &amp;<br>Cybersecurity Lab</h1>
+      <p>A segmented five-zone network that was built, monitored, attacked (with authorisation, inside the lab
+      only) and defended on one laptop. This guide gives every step in the order it was done, every tool and
+      what it is for, the exact commands, the results, the problems solved, and a full interview-preparation section.</p>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>36 / 36</b>health checks pass</div>
+      <div class="stat"><b>51 / 51</b>zone policy tests</div>
+      <div class="stat"><b>12 + 4</b>assignments + scenarios</div>
+      <div class="stat"><b>7</b>incident reports</div>
+    </div>
+    <div class="box key" style="margin-top:16px">
+      <span class="lbl">Repository:</span> github.com/muttakin210/Enterprise-Infrastructure-Security-Lab<br>
+      <span class="lbl">Author:</span> muttakin210 &nbsp;·&nbsp; <span class="lbl">Built:</span> 9 November 2026 &nbsp;·&nbsp;
+      <span class="lbl">Host:</span> Windows 11 laptop (16 GB RAM), VirtualBox 7.2.4, Cisco Packet Tracer 9.0
+    </div>
+  </div>
+  <div class="toc">
+    <h3>Contents</h3>
+    <ol>
+      <li>Project at a glance</li>
+      <li>Network design (zones, addressing, policy, VMs)</li>
+      <li>Build order: what was done, step by step</li>
+      <li>Assignments and scenarios: how each was done</li>
+      <li>Tool reference: what each tool is and does</li>
+      <li>Command cheat sheet</li>
+      <li>Results and evidence</li>
+      <li>Incident reports in short</li>
+      <li>Problems hit and how they were solved</li>
+      <li>Security decisions</li>
+      <li>Limitations and honest scope</li>
+      <li>Interview preparation</li>
+      <li>Glossary</li>
+    </ol>
+  </div>
+</div>
+
+<!-- ============================== 1 ============================== -->
+<div class="section">
+<h2>1. Project at a glance</h2>
+<p><b>Goal.</b> Build a small enterprise network the way a real company would separate it: administrators,
+servers, employees, a security team and a public DMZ each in their own zone, with a firewall between them.
+Then <i>monitor</i> it (SNMPv3, logs), <i>attack</i> it from a Kali machine inside the lab, <i>detect</i> the attacks
+(IDS and SIEM), <i>respond</i> (automatic blocking, incident reports) and <i>prove</i> every claim with saved evidence.</p>
+
+<p>The project covers the work of four roles at once:</p>
+<table>
+<tr><th style="width:26%">Role</th><th>What this lab shows</th></tr>
+<tr><td>Network Engineer</td><td>Zone design and IP plan, firewall rules, VLANs/trunk/ACLs (Cisco), DHCP, DNS, NAT, SNMPv3 monitoring</td></tr>
+<tr><td>Linux System Administrator</td><td>Ubuntu servers built by script, netplan, UFW, SSH hardening, BIND9, Nginx, rsyslog, systemd troubleshooting</td></tr>
+<tr><td>Network Security Engineer</td><td>Default-deny pfSense policy, segmentation tests, IDS sensor placement, rule writing and tuning, hardening</td></tr>
+<tr><td>Junior Security Analyst (SOC)</td><td>Nmap assessment, Wireshark analysis, Suricata and Wazuh alert triage, correlation, active response, incident reports</td></tr>
+</table>
+
+<h3>What was delivered</h3>
+<table>
+<tr><th style="width:24%">Area</th><th>Delivered</th></tr>
+<tr><td>Firewall</td><td><b>pfSense CE 2.7.2</b> (fw01) with six interfaces, aliases, a default-deny rule set per zone, outbound NAT, DHCP for Users, remote syslog and an SNMPv3 agent, all written by one re-runnable PHP script.</td></tr>
+<tr><td>Servers</td><td><b>srv01</b> (DNS + intranet web), <b>dmz-web01</b> (public web), <b>client01</b> (employee PC), all Ubuntu 22.04 built by <code>server-setup.sh</code>, each with UFW and SSH hardening.</td></tr>
+<tr><td>Monitoring &amp; security server</td><td><b>monitor01</b>: LibreNMS (SNMPv3), <b>Suricata 8</b> IDS on two sensor NICs, <b>Wazuh 4.14</b> SIEM manager, rsyslog collector.</td></tr>
+<tr><td>Attacker</td><td><b>kali01</b> (Kali 2025.4) in the Security zone, allowed to reach only the two authorised targets.</td></tr>
+<tr><td>Cisco</td><td>CORE-SW1 (2960) and FW01 (ISR 2911) configs: VLANs, 802.1Q trunk, port security, DHCP snooping, router-on-a-stick with zone ACLs; built and tested in <b>Packet Tracer</b>.</td></tr>
+<tr><td>Analysis &amp; response</td><td>Nmap assessment, Wireshark capture analysis, DNS investigation, Suricata/Wazuh alert analysis, a troubleshooting workflow and <b>7 incident reports</b>.</td></tr>
+<tr><td>Verification</td><td><code>tests/run-all.sh</code>: <b>36/36 PASS</b>; connectivity matrix <b>51/51</b> from all five hosts; 10 Packet Tracer screenshots, 18 GUI screenshots, raw evidence files and a pcap.</td></tr>
+</table>
+
+<h3>Repository layout</h3>
+<pre>topology/        addressing plan (CSV), diagram, Packet Tracer topology image
+cisco/           core-sw1.cfg, fw01-edge.cfg, packet-tracer/ (.pkt, generator, generated pastes)
+firewall/        pfsense-configure.php (whole policy), pfsense-snmpv3.sh, README (rules explained)
+linux/           server-setup.sh, monitor01-setup.sh, ssh-hardening.sh, suricata-config.py,
+                 wazuh-manager-config.py, dns/ (BIND zone files)
+monitoring/      LibreNMS and Wazuh overview
+cybersecurity/   nmap / wireshark / suricata / wazuh write-ups, suricata/local.rules,
+                 scripts/ (assessment, attack simulation, capture, SNMP tests, connectivity matrix),
+                 evidence/ (raw output, pcap)
+troubleshooting/ workflow.md, incident-reports/ IR-001 ... IR-007
+lab/             vbox/ (PowerShell VM builders, console driver), screenshots.py
+tests/           run-all.sh, last-run.txt
+screenshots/     pfSense, LibreNMS, packet-tracer/
+docs/            assignments.md (index), build-log.md, this guide</pre>
+</div>
+
+<!-- ============================== 2 ============================== -->
+<div class="section">
+<h2>2. Network design</h2>
+<h3>Zones and addressing</h3>
+<table>
+<tr><th>Zone</th><th>VLAN</th><th>Network</th><th>Gateway</th><th>Hosts</th><th>Purpose</th></tr>
+<tr><td>Management</td><td>10</td><td>192.168.10.0/24</td><td>.1</td><td>CORE-SW1 SVI .2 (Cisco)</td><td>network device management</td></tr>
+<tr><td>Servers</td><td>20</td><td>192.168.20.0/24</td><td>.1</td><td>monitor01 .10, srv01 .20</td><td>Linux infrastructure</td></tr>
+<tr><td>Users</td><td>30</td><td>192.168.30.0/24</td><td>.1</td><td>client01 (DHCP .100–.199)</td><td>employee devices</td></tr>
+<tr><td>Security</td><td>40</td><td>192.168.40.0/24</td><td>.1</td><td>kali01 .10</td><td>authorised security testing</td></tr>
+<tr><td>DMZ</td><td>50</td><td>192.168.50.0/24</td><td>.1</td><td>dmz-web01 .10</td><td>public-facing services</td></tr>
+<tr><td>WAN</td><td>–</td><td>10.0.2.0/24</td><td>10.0.2.2</td><td>fw01 10.0.2.15</td><td>internet via VirtualBox NAT</td></tr>
+</table>
+<p>The gateway of every zone is <b>.1</b> on fw01. In VirtualBox each zone is a separate <b>internal network</b>
+(<code>pel-mgmt</code>, <code>pel-servers</code>, <code>pel-users</code>, <code>pel-security</code>, <code>pel-dmz</code>): a private layer-2
+segment whose only way out is fw01. That behaves exactly like an access VLAN behind a firewall.</p>
+
+<pre>                    Internet (VirtualBox NAT, 10.0.2.0/24)
+                                  |
+                         fw01  pfSense CE 2.7.2
+               routing, default-deny rules, NAT, DHCP (Users), syslog out
+     +---------------+------------+------------+---------------+
+  pel-mgmt       pel-servers   pel-users   pel-security      pel-dmz
+  192.168.10/24  .20/24        .30/24      .40/24            .50/24
+  (switch SVI    monitor01 .10 client01    kali01 .10        dmz-web01 .10
+   in PT)        srv01 .20     DHCP .100+
+                 monitor01 also has a 2nd NIC on pel-dmz with NO IP (IDS sensor)</pre>
+
+<h3>Firewall policy (default deny, least privilege)</h3>
+<table>
+<tr><th>From \ To</th><th>Management</th><th>Servers</th><th>Users</th><th>Security</th><th>DMZ</th><th>Internet</th></tr>
+<tr><td><b>Management</b></td><td>–</td><td class="ok">allow</td><td class="ok">allow</td><td class="ok">allow</td><td class="ok">allow</td><td class="ok">allow</td></tr>
+<tr><td><b>Servers</b></td><td>SNMP/SSH from monitor01 only</td><td>–</td><td class="no">deny</td><td class="no">deny</td><td>SNMP from monitor01 only</td><td class="ok">allow (updates)</td></tr>
+<tr><td><b>Users</b></td><td class="no">deny</td><td>DNS, SSH, web to srv01 only</td><td>–</td><td class="no">deny</td><td>web only</td><td class="ok">allow</td></tr>
+<tr><td><b>Security</b></td><td class="no">deny</td><td>srv01 only (test target)</td><td class="no">deny</td><td>–</td><td>dmz-web01 (test target)</td><td class="ok">allow</td></tr>
+<tr><td><b>DMZ</b></td><td class="no">deny (logged)</td><td>Wazuh agent ports to monitor01 only</td><td class="no">deny</td><td class="no">deny</td><td>–</td><td class="ok">allow (updates)</td></tr>
+</table>
+<div class="box tip"><b>Why this policy?</b> Administrators need to manage everything, so Management may start sessions anywhere.
+Nobody else may start a session <i>into</i> Management. Servers answer requests but never start sessions into other zones,
+so a hacked server cannot pivot. The DMZ is the most exposed zone, so it can reach nothing inside except the single
+port monitor01 needs for log collection. The Security zone may test only the two systems named as targets.</div>
+
+<h3>Virtual machines</h3>
+<table>
+<tr><th>VM</th><th>OS</th><th>RAM</th><th>NICs</th><th>Role</th></tr>
+<tr><td>fw01</td><td>pfSense CE 2.7.2 (FreeBSD 14)</td><td>1 GB</td><td>6: WAN (NAT) + 5 zones</td><td>firewall, router, NAT, DHCP</td></tr>
+<tr><td>monitor01</td><td>Ubuntu 22.04 (linked clone of the earlier ENL server)</td><td>2 GB</td><td>NAT (host mgmt), Servers, DMZ (no IP)</td><td>LibreNMS, Suricata, Wazuh manager, rsyslog</td></tr>
+<tr><td>srv01</td><td>Ubuntu 22.04</td><td>1 GB</td><td>Servers</td><td>BIND9 DNS, Nginx intranet, Wazuh agent 001</td></tr>
+<tr><td>dmz-web01</td><td>Ubuntu 22.04</td><td>768 MB</td><td>DMZ</td><td>Nginx public site, Wazuh agent 002</td></tr>
+<tr><td>client01</td><td>Ubuntu 22.04</td><td>768 MB</td><td>Users</td><td>employee client (DHCP)</td></tr>
+<tr><td>kali01</td><td>Kali Linux 2025.4</td><td>1 GB</td><td>Security + NAT (no default route)</td><td>authorised attacker / tester</td></tr>
+</table>
+<p class="small muted">The inner VMs have no direct path from the host. They are reached by SSH through fw01 as a jump host
+(<code>ssh -J</code>, wrapped in <code>.lab-local/in.sh</code>), which is how a bastion host works in real networks.</p>
+</div>
+
+<!-- ============================== 3 ============================== -->
+<div class="section">
+<h2>3. Build order: what was done, step by step</h2>
+<p>The steps below are in the real order. Each has <b>what</b> was done, <b>why</b>, and the <b>commands</b>. Secrets are
+shown as placeholders such as <code>&lt;SNMP_AUTH&gt;</code>; the real values exist only in the git-ignored
+<code>.lab-local/</code> folder and in <code>/root/lab-secrets.env</code> (mode 600) on each VM.</p>
+
+<div class="step"><h3>Step 1: Read the brief, plan the repository and secrets</h3>
+<p>The project brief defined five zones, the tools (pfSense, Cisco, LibreNMS, Kali, Suricata, Wazuh, Wireshark), 12
+assignments, 4 scenarios and a repository layout. First the addressing plan, the policy matrix and the folder
+structure were written. A rule was set from the start: <b>no password, key or SNMP secret is ever committed</b>.</p>
+<pre><span class="c"># repository + git-ignored secrets folder</span>
+git init enterprise-infrastructure-security && cd enterprise-infrastructure-security
+echo ".lab-local/" &gt;&gt; .gitignore
+<span class="c"># lab secrets generated randomly, never typed into chat or files that are committed</span>
+python -c "import secrets; print(secrets.token_urlsafe(18))"
+ssh-keygen -t ed25519 -f .lab-local/pel_ed25519 -N ""      <span class="c"># one lab SSH key</span>
+git remote add origin https://github.com/muttakin210/Enterprise-Infrastructure-Security-Lab.git
+git push -u origin main</pre>
+</div>
+
+<div class="step"><h3>Step 2: Base Ubuntu image (unattended install)</h3>
+<p><b>Why:</b> three servers need the same OS. One base install, then <i>linked clones</i>, saves disk space and time.</p>
+<pre>powershell -File lab\vbox\new-ubuntu-base.ps1 -Iso C:\...\ubuntu-22.04.5-live-server-amd64.iso
+<span class="c"># inside: VBoxManage createvm / modifyvm / storagectl, then</span>
+VBoxManage unattended install pel-base --iso ... --user &lt;LAB_USER&gt; --password &lt;LAB_PASS&gt; --full-user-name 'Lab Admin' ...
+<span class="c"># the values come from .lab-local/secrets.env, never typed into the script</span>
+VBoxManage snapshot pel-base take base      <span class="c"># linked clones are made from this snapshot</span></pre>
+</div>
+
+<div class="step"><h3>Step 3: fw01, the pfSense firewall</h3>
+<p><b>What:</b> a FreeBSD VM with six NICs (WAN on NAT, one internal network per zone). The ISO was checked against
+Netgate's SHA-256. The installer was driven over the headless console by sending keystrokes
+(<code>lab/vbox/vmcon.sh</code>), and then SSH was enabled from the console menu (option 14).</p>
+<pre>powershell -File lab\vbox\new-fw01.ps1                    <span class="c"># VM with em0..em5</span>
+certutil -hashfile pfSense-CE-2.7.2-RELEASE-amd64.iso SHA256  <span class="c"># compare with Netgate's hash</span>
+bash lab/vbox/vmcon.sh fw01 shot.png ENTER WAIT:3 ...      <span class="c"># type into the installer, take a screenshot</span>
+VBoxManage modifyvm fw01 --natpf1 "ssh,tcp,127.0.0.1,2250,,22" --natpf1 "gui,tcp,127.0.0.1,8443,,443"</pre>
+<p><b>Configuration as code:</b> instead of clicking 30 rules in the GUI, one PHP script writes the whole policy
+through pfSense's own config API (<code>write_config</code>), so it is repeatable and the GUI still shows everything.</p>
+<pre>scp firewall/pfsense-configure.php root@fw01:/root/
+ssh root@fw01 'php -f /root/pfsense-configure.php /root/pel.env'
+<span class="c"># interfaces + IPs, aliases (PRIVATE_NETS, WEB_PORTS ...), per-zone rules, outbound NAT,
+# DHCP .100-.199 on USERS, remote syslog to 192.168.20.10, key-only SSH, admin password</span>
+ssh root@fw01 'sh /root/pfsense-snmpv3.sh /root/pel.env'   <span class="c"># net-snmp v3-only agent (bsnmpd only speaks v1/v2c)</span>
+ssh root@fw01 'pfctl -sr | wc -l; pfctl -s state | head'   <span class="c"># check the loaded rules and states</span></pre>
+</div>
+
+<div class="step"><h3>Step 4: The zone servers (srv01, dmz-web01, client01)</h3>
+<p>Linked clones of the base. In the <i>build phase</i> NIC1 is on NAT so <code>apt</code> works; then the NIC moves onto its zone's
+internal network and the VM can only be reached through fw01.</p>
+<pre>powershell -File lab\vbox\new-clones.ps1                     <span class="c"># clones on NAT with SSH forwards</span>
+sudo ./server-setup.sh srv01 packages                         <span class="c"># hostname, packages, SNMPv3, BIND/Nginx, UFW, Wazuh agent</span>
+sudo ./server-setup.sh srv01 network                          <span class="c"># zone netplan (static .20, gw .1, DNS 192.168.20.20)</span>
+powershell -File lab\vbox\new-clones.ps1 -Finalize           <span class="c"># move NIC1 onto pel-servers / pel-dmz / pel-users</span></pre>
+<p>What <code>server-setup.sh</code> configures on each role:</p>
+<ul>
+<li><b>SNMPv3:</b> <code>net-snmp-create-v3-user -ro -A &lt;SNMP_AUTH&gt; -X &lt;SNMP_PRIV&gt; -a SHA -x AES monitoruser</code>, and
+<code>rouser monitoruser priv</code> (encryption required). No communities, so v1/v2c are off.</li>
+<li><b>srv01:</b> BIND9 with the <code>corp.lab</code> zone and reverse zone, recursion only for lab networks, version hidden, query log; Nginx intranet page.</li>
+<li><b>dmz-web01:</b> Nginx public page, <code>server_tokens off</code>; it uses 1.1.1.1 as DNS because the DMZ may not reach internal DNS.</li>
+<li><b>UFW:</b> default deny incoming; SNMP only from monitor01; SSH only from Management and the fw01 jump addresses; web/DNS where needed.</li>
+<li><b>Wazuh agent:</b> <code>WAZUH_MANAGER=192.168.20.10 apt-get install wazuh-agent</code>, and the repo is then disabled to pin the version.</li>
+<li><code>preserve_hostname: true</code> so cloud-init does not rename the clone back to the base name.</li>
+</ul>
+</div>
+
+<div class="step"><h3>Step 5: SSH hardening (assignment 4)</h3>
+<pre>sudo bash linux/ssh-hardening.sh labadmin
+<span class="c"># writes /etc/ssh/sshd_config.d/10-pel-hardening.conf:</span>
+PermitRootLogin no            PasswordAuthentication no      AuthenticationMethods publickey
+AllowUsers labadmin           MaxAuthTries 3                 LoginGraceTime 30
+X11Forwarding no              LogLevel VERBOSE               Banner /etc/issue.net
+Ciphers chacha20-poly1305, aes256-gcm, aes128-gcm   MACs *-etm only   KexAlgorithms curve25519
+sshd -t &amp;&amp; systemctl reload ssh       <span class="c"># test the config before reload: never lock yourself out</span>
+sshd -T | grep -E 'passwordauthentication|permitrootlogin'   <span class="c"># effective values</span></pre>
+<p>The cloud-init drop-in <code>50-cloud-init.conf</code> (which turns passwords back on) is removed, because sshd uses the
+<i>first</i> value it reads.</p>
+</div>
+
+<div class="step"><h3>Step 6: monitor01 (LibreNMS + Suricata + Wazuh)</h3>
+<p>monitor01 is a linked clone of the earlier ENL lab server, which already had a working LibreNMS. That saved a long
+install. <code>monitor01-setup.sh</code> renames it, removes old devices and logs, disables services that are no longer needed,
+fixes DNS, and installs the security stack.</p>
+<pre>powershell -File lab\vbox\new-monitor01.ps1   <span class="c"># NIC1 NAT (host :2230 ssh, :8030 LibreNMS), NIC2 Servers, NIC3 DMZ, both promiscuous</span>
+sudo bash linux/monitor01-setup.sh
+<span class="c"># 1 identity: hostnamectl, /etc/hosts (192.168.20.1 fw01 so rsyslog names it correctly)
+# 2 netplan: enp0s8 192.168.20.10/24 gw .1; enp0s9 DMZ with NO IP (stealth sensor)
+# 3 Suricata:</span>
+add-apt-repository -y ppa:oisf/suricata-stable &amp;&amp; apt-get install -y suricata jq
+python3 linux/suricata-config.py /etc/suricata/suricata.yaml  <span class="c"># HOME_NET, af-packet enp0s8 + enp0s9, local.rules</span>
+suricata-update                                                <span class="c"># ET Open, ~53,000 rules</span>
+suricata -T -c /etc/suricata/suricata.yaml                     <span class="c"># config test before restart</span>
+<span class="c"># 4 Wazuh manager (no indexer/dashboard):</span>
+apt-get install -y wazuh-manager
+python3 linux/wazuh-manager-config.py /var/ossec/etc/ossec.conf  <span class="c"># eve.json, fw01 syslog, active response</span>
+printf '[Service]\nTimeoutStartSec=600\n' &gt; /etc/systemd/system/wazuh-manager.service.d/timeout.conf
+<span class="c"># 5 UFW: SSH/LibreNMS from host + Management, syslog 514 from fw01, 1514/1515 for agents</span></pre>
+</div>
+
+<div class="step"><h3>Step 7: Logs, agents and LibreNMS devices</h3>
+<pre><span class="c"># fw01 syslog lands in /var/log/remote/ via rsyslog; Wazuh reads that file</span>
+tail -f /var/log/remote/all-devices.log | grep filterlog
+<span class="c"># Wazuh agents</span>
+sudo /var/ossec/bin/agent_control -l            <span class="c"># 001 srv01, 002 dmz-web01: Active</span>
+<span class="c"># LibreNMS: add each device with SNMPv3 authPriv</span>
+sudo -u librenms lnms device:add --v3 --authname monitoruser --authpass &lt;SNMP_AUTH&gt; --authalgo SHA \
+     --cryptopass &lt;SNMP_PRIV&gt; --cryptoalgo AES 192.168.20.1 &lt;/dev/null
+sudo -u librenms lnms device:poll 192.168.20.1</pre>
+<p>Result: fw01 (pfSense, 10 ports), srv01 and dmz-web01 polled over SNMPv3. pfSense's firewall log lines arrive in Wazuh.</p>
+</div>
+
+<div class="step"><h3>Step 8: kali01 and client01</h3>
+<pre>powershell -File lab\vbox\new-kali.ps1         <span class="c"># official Kali VirtualBox image, eth0 Security, eth1 NAT</span>
+<span class="c"># on kali01: static address in the Security zone, NAT only for the host's SSH (never the default route)</span>
+nmcli con add type ethernet ifname eth0 con-name sec0 ipv4.method manual \
+      ipv4.addresses 192.168.40.10/24 ipv4.gateway 192.168.40.1 ipv4.dns 192.168.20.20
+nmcli con mod nat1 ipv4.never-default yes
+sudo systemctl set-default multi-user.target   <span class="c"># no desktop: the laptop has little RAM left</span>
+<span class="c"># client01 gets its address from fw01's DHCP</span>
+ip -br a      <span class="c"># 192.168.30.100/24</span></pre>
+</div>
+
+<div class="step"><h3>Step 9: Assignments, attacks and evidence</h3>
+<p>Each assignment is a script, run on the right host, with output saved to <code>cybersecurity/evidence/</code>. Section 4
+explains each one. The order was: Nmap (A1–A3) → SSH before/after (A4) → SNMPv3 tests (A6) → Wireshark (A7) →
+attack simulation for DNS, Suricata and Wazuh (A8–A10) → connectivity matrix and the DMZ test (A5, A11, scenario 4)
+→ incident reports (A12).</p>
+<pre>bash .lab-local/in.sh kali01 'sudo bash -s' &lt; cybersecurity/scripts/nmap-assessment.sh
+bash .lab-local/in.sh kali01 'sudo bash -s' &lt; cybersecurity/scripts/attack-simulation.sh
+bash .lab-local/mon.sh 'sudo bash -s' &lt; cybersecurity/scripts/snmpv3-tests.sh
+bash .lab-local/in.sh srv01 "bash -s srv01" &lt; cybersecurity/scripts/connectivity-matrix.sh</pre>
+</div>
+
+<div class="step"><h3>Step 10: Cisco side in Packet Tracer (assignment 11)</h3>
+<p>pfSense cannot run in Packet Tracer, so the same policy was written for Cisco: CORE-SW1 (2960) with VLANs and a trunk,
+and FW01 (ISR 2911) as a router-on-a-stick with one sub-interface and one inbound ACL per zone. A Python script turns
+the configs into Packet Tracer pastes (PT's IOS has no SNMPv3 and no <code>log</code> keyword on ACLs).</p>
+<pre>python cisco/packet-tracer/make_pt_configs.py      <span class="c"># -&gt; configs/CORE-SW1.txt, configs/FW01.txt</span>
+<span class="c"># in PT: 2911 G0/0 &lt;-&gt; 2960 Gi0/1 (straight-through!), Fa0/1-6 to six end devices, paste configs, write memory</span>
+show vlan brief | show interfaces trunk | show port-security | show ip dhcp snooping
+show ip interface brief | show ip dhcp binding | show access-lists USERS-IN</pre>
+<p>End devices were set up (static IPs, DHCP for CLIENT01, DNS records and HTTP on SRV01) and isolation was tested with
+ping, nslookup and the PT web browser.</p>
+</div>
+
+<div class="step"><h3>Step 11: Screenshots, test runner, documentation, commits</h3>
+<pre>python lab/screenshots.py         <span class="c"># Playwright logs into pfSense and LibreNMS, saves 18 screenshots</span>
+bash tests/run-all.sh             <span class="c"># 36 checks, PASS / FAIL / SKIP</span>
+<span class="c"># before every commit: scan the staged files for every lab secret value and for private keys</span>
+git diff --cached | grep -F -- "&lt;each secret value&gt;"   ;  git diff --cached | grep "BEGIN .*PRIVATE KEY"
+git commit -m "..." &amp;&amp; git push    <span class="c"># roughly every 10 minutes of work</span></pre>
+</div>
+</div>
+
+<!-- ============================== 4 ============================== -->
+<div class="section">
+<h2>4. Assignments and scenarios: how each was done</h2>
+<table>
+<tr><th style="width:4%">#</th><th style="width:20%">Assignment</th><th>How it was done</th><th style="width:28%">Result</th></tr>
+<tr><td>1</td><td>Host discovery</td><td><code>nmap -sn -PE -PS22,80,443 -n &lt;zone&gt;/24</code> from kali01 for all 5 zones</td><td>Security: .1, .10; Servers: <b>only .20</b>; DMZ: .10; Users and Management: <b>0 hosts</b> (invisible)</td></tr>
+<tr><td>2</td><td>Port scanning</td><td><code>nmap -sS -p- --min-rate 800</code> and <code>nmap -sU --top-ports 25</code> on srv01, dmz-web01</td><td>srv01 open 22, 53, 80; dmz-web01 open 80; 443 closed; the rest filtered (UFW drop)</td></tr>
+<tr><td>3</td><td>Service enumeration</td><td><code>nmap -sV -sC</code>, NSE <code>ssh-auth-methods</code>, <code>ssh2-enum-algos</code>, <code>dns-nsid</code>, <code>dns-recursion</code></td><td>SSH publickey only, modern algorithms; BIND version hidden; nginx version hidden</td></tr>
+<tr><td>4</td><td>SSH hardening</td><td><code>ssh-hardening.sh</code>; compared Nmap and <code>sshd -T</code> before/after</td><td>password and root login off; Hydra cannot even try passwords</td></tr>
+<tr><td>5</td><td>Firewall rule testing</td><td><code>connectivity-matrix.sh</code> on every host: TCP connect / ping to each target, compared with the expected policy</td><td><b>51/51 PASS</b></td></tr>
+<tr><td>6</td><td>SNMPv3 security</td><td><code>snmpv3-tests.sh</code>: correct authPriv, wrong password, authNoPriv, noAuthNoPriv, unknown user, v2c, v1; tcpdump of one request</td><td>only authPriv works; payload encrypted on the wire; two faults found and fixed (IR-004, IR-005)</td></tr>
+<tr><td>7</td><td>Wireshark analysis</td><td><code>wireshark-capture.sh</code>: tcpdump while generating DNS, HTTP, SSH, ICMP, blocked and closed-port traffic; analysed with tshark</td><td>55 packets; clear-text DNS/HTTP, encrypted SSH, RST vs silent drop, one-way conversation = firewall drop</td></tr>
+<tr><td>8</td><td>DNS investigation</td><td>tunnelling-style queries and a 150-query burst from kali01; BIND query log, Suricata, Wazuh</td><td>detected by sid 9000010/9000011 and Wazuh 12105 (IR-002)</td></tr>
+<tr><td>9</td><td>Suricata IDS testing</td><td><code>attack-simulation.sh</code>; alerts read from <code>eve.json</code> with jq</td><td>scan, web scanner, DNS, SSH flood, DMZ→Mgmt all detected; port-scan rule tuned</td></tr>
+<tr><td>10</td><td>Wazuh log analysis</td><td>alerts.json grouped by agent and rule; correlation across Suricata, nginx and sshd</td><td>5710 → 5712 (level 10) → active response blocked kali01 for 600 s</td></tr>
+<tr><td>11</td><td>VLAN isolation</td><td>VirtualBox internal networks + the matrix; Cisco VLANs, trunk and ACLs in Packet Tracer</td><td>Users→Admin and DMZ→Mgmt blocked; allowed services work</td></tr>
+<tr><td>12</td><td>Incident response</td><td>workflow + 7 reports with timeline, root cause, fix and lessons</td><td>IR-001 … IR-007</td></tr>
+</table>
+<table>
+<tr><th style="width:30%">Scenario</th><th>What happened and how it was handled</th></tr>
+<tr><td>1 Unauthorised port discovery</td><td>kali01 scanned the zones. Suricata sid 9000001 and ET 2024364 fired; the Wazuh timeline linked them to one source; the firewall hid Users and Management completely. <b>IR-001</b>.</td></tr>
+<tr><td>2 Suspicious DNS activity</td><td>Queries with 50-character random labels and a burst. Detected by Suricata and BIND errors in Wazuh; investigated in the query log; classified as a test. <b>IR-002</b>.</td></tr>
+<tr><td>3 Failed SSH login investigation</td><td>12 invalid users in seconds. Wazuh 5712 (level 10) triggered <code>firewall-drop</code> on srv01; verified with iptables and the active-response log. <b>IR-003</b>.</td></tr>
+<tr><td>4 Segmentation / connectivity matrix</td><td>dmz-web01 tried 192.168.10.x. fw01 blocked and logged it, and the DMZ sensor alerted with sid 9000030 before the drop. <b>IR-007</b> + 51/51 matrix.</td></tr>
+</table>
+
+<h3>Suricata lab rules (written for this project)</h3>
+<pre><span class="c"># port scan: one alert per source per minute after 40 SYNs</span>
+alert tcp $HOME_NET any -&gt; $HOME_NET any (msg:"PEL LAB Possible TCP port scan (SYN sweep)"; flags:S,12;
+  threshold:type both, track by_src, count 40, seconds 60; classtype:attempted-recon; sid:9000001; rev:2;)
+<span class="c"># DNS tunnelling: a label of 40+ alphanumeric characters</span>
+alert dns $HOME_NET any -&gt; any 53 (msg:"PEL LAB DNS query with very long label"; dns.query;
+  pcre:"/[a-z0-9]{40,}\./i"; classtype:policy-violation; sid:9000010; rev:1;)
+<span class="c"># SSH brute force: 10 new connections in 60 s</span>
+alert tcp $HOME_NET any -&gt; $HOME_NET 22 (msg:"PEL LAB SSH brute force"; flow:to_server; flags:S,12;
+  threshold:type threshold, track by_src, count 10, seconds 60; sid:9000020; rev:1;)
+<span class="c"># segmentation: any DMZ packet towards Management</span>
+alert ip 192.168.50.0/24 any -&gt; 192.168.10.0/24 any (msg:"PEL LAB DMZ host contacting Management zone"; sid:9000030; rev:1;)
+<span class="c"># also: 9000002/3 NULL/XMAS scans, 9000011 DNS burst, 9000040 scanner user-agents (Nikto, NSE, gobuster)</span></pre>
+
+<h3>Wazuh active response</h3>
+<pre>&lt;active-response&gt;
+  &lt;command&gt;firewall-drop&lt;/command&gt;   <span class="c">&lt;!-- iptables DROP for the source IP --&gt;</span>
+  &lt;location&gt;local&lt;/location&gt;         <span class="c">&lt;!-- on the agent that saw the attack --&gt;</span>
+  &lt;rules_id&gt;5712,5763&lt;/rules_id&gt;     <span class="c">&lt;!-- invalid-user and failed-password brute force --&gt;</span>
+  &lt;timeout&gt;600&lt;/timeout&gt;             <span class="c">&lt;!-- removed automatically after 10 minutes --&gt;</span>
+&lt;/active-response&gt;</pre>
+</div>
+
+<!-- ============================== 5 ============================== -->
+<div class="section">
+<h2>5. Tool reference: what each tool is and does</h2>
+<p>For each tool: <span class="lbl">What it is</span>, <span class="lbl">What it can do</span> in general, and
+<span class="lbl">What I did with it</span> in this lab.</p>
+
+<h3>Platform</h3>
+<div class="tool"><h4>Oracle VirtualBox 7.2 <span class="tag">hypervisor</span></h4>
+<p><span class="lbl">What it is:</span> a free type-2 hypervisor that runs virtual machines on a desktop OS.</p>
+<p><span class="lbl">Can do:</span> VMs with many NICs; NAT, bridged, host-only and <b>internal</b> networks; snapshots and linked clones; port forwarding; headless VMs scripted by <code>VBoxManage</code>; promiscuous mode for sniffing.</p>
+<p><span class="lbl">I used it to:</span> build 6 VMs by PowerShell script; make each zone an internal network; use linked clones from a snapshot; forward only the host's management ports; set promiscuous "allow-all" on monitor01's sensor NICs (like a SPAN port); drive the pfSense installer by sending keystrokes to a headless console.</p></div>
+
+<div class="tool"><h4>pfSense CE 2.7.2 <span class="tag">firewall</span></h4>
+<p><span class="lbl">What it is:</span> an open-source firewall and router based on FreeBSD and its packet filter <b>pf</b>.</p>
+<p><span class="lbl">Can do:</span> stateful filtering per interface, aliases, NAT and port forwards, DHCP/DNS services, VPN (IPsec, OpenVPN, WireGuard), traffic shaping, remote syslog, packages (Suricata, Snort, pfBlockerNG), high availability (CARP).</p>
+<p><span class="lbl">I used it to:</span> route between 5 zones; enforce a default-deny, least-privilege policy written as code (PHP + <code>write_config</code>); run outbound NAT and DHCP for Users; log blocks and send them to monitor01; run a net-snmp SNMPv3-only agent; key-only SSH as the bastion host.</p>
+<p class="small"><b>Key facts:</b> rules apply on the interface where traffic <i>enters</i>; first match wins; state tracking lets replies back in; <code>scrub</code> drops malformed packets (why NULL/XMAS scans never reached the sensor).</p></div>
+
+<div class="tool"><h4>Ubuntu Server 22.04 and Kali Linux 2025.4 <span class="tag">OS</span></h4>
+<p><span class="lbl">Ubuntu:</span> stable server Linux; used for all servers and the client. Configured with netplan, systemd, apt and UFW.</p>
+<p><span class="lbl">Kali:</span> Debian-based distribution with hundreds of security tools (Nmap, Hydra, Wireshark, Metasploit, Burp ...). Used only as the authorised tester in the Security zone.</p></div>
+
+<h3>Linux services and hardening</h3>
+<div class="grid2">
+<div class="tool"><h4>Netplan</h4><p>Ubuntu's YAML network configuration (renders to systemd-networkd). <b>Used:</b> static IPs, gateways, DNS per zone; an address-less sensor NIC on monitor01; NAT NIC with <code>use-routes: false</code>.</p></div>
+<div class="tool"><h4>UFW / iptables</h4><p>Host firewall front-end to netfilter. <b>Used:</b> default deny on every server; SNMP only from monitor01; SSH only from Management and the jump host. Wazuh active response adds iptables DROP rules.</p></div>
+<div class="tool"><h4>OpenSSH</h4><p>Encrypted remote login, file copy and tunnels. <b>Used:</b> key-only access, <code>AllowUsers</code>, modern ciphers, VERBOSE logs; fw01 as a jump host (<code>ProxyCommand / -J</code>).</p></div>
+<div class="tool"><h4>BIND9 (srv01)</h4><p>Authoritative and recursive DNS server. <b>Used:</b> <code>corp.lab</code> forward and reverse zones, recursion only for lab networks, version hidden, query logging for the DNS investigation.</p></div>
+<div class="tool"><h4>Nginx</h4><p>Web server and reverse proxy. <b>Used:</b> intranet site on srv01, public site on dmz-web01, <code>server_tokens off</code>. Its 400 errors fed Wazuh rule 31151 during scanning.</p></div>
+<div class="tool"><h4>rsyslog</h4><p>Linux syslog daemon; can receive logs over UDP/TCP and write them per host. <b>Used:</b> received fw01's logs on UDP 514 into <code>/var/log/remote/</code>, which Wazuh reads.</p></div>
+</div>
+
+<h3>Monitoring</h3>
+<div class="tool"><h4>SNMPv3 and Net-SNMP <span class="tag">protocol</span></h4>
+<p><span class="lbl">What it is:</span> SNMP lets a manager read device data (interfaces, traffic, CPU, uptime) over UDP 161. Version 3 adds users (USM) with <b>authentication</b> (SHA) and <b>encryption</b> (AES). Levels: noAuthNoPriv, authNoPriv, <b>authPriv</b>.</p>
+<p><span class="lbl">I used it to:</span> run v3 authPriv-only agents on fw01, srv01 and dmz-web01; prove that wrong passwords, weaker levels, unknown users and v1/v2c are refused; show in tcpdump that the PDU is encrypted (only the USM header is visible); fix two real faults (IR-004, IR-005).</p>
+<pre>snmpget -v3 -l authPriv -u monitoruser -a SHA -A &lt;SNMP_AUTH&gt; -x AES -X &lt;SNMP_PRIV&gt; 192.168.20.1 sysName.0
+snmpwalk -v3 -l authPriv ... 192.168.20.20 ifDescr</pre></div>
+
+<div class="tool"><h4>LibreNMS <span class="tag">NMS</span></h4>
+<p><span class="lbl">What it is:</span> an open-source network monitoring system (PHP + MariaDB) that auto-discovers devices over SNMP.</p>
+<p><span class="lbl">Can do:</span> port graphs, health sensors, alert rules (mail, Slack ...), event logs, maps, syslog, API.</p>
+<p><span class="lbl">I used it to:</span> monitor fw01 (detected as pfSense, 10 ports), srv01 and dmz-web01 over SNMPv3; added them with <code>lnms device:add --v3</code>; screenshots as evidence.</p></div>
+
+<h3>Detection and response</h3>
+<div class="tool"><h4>Suricata 8 <span class="tag">IDS / IPS</span></h4>
+<p><span class="lbl">What it is:</span> an open-source network intrusion detection and prevention engine. It reads packets (af-packet, pcap, NFQUEUE), decodes protocols and matches signatures.</p>
+<p><span class="lbl">Can do:</span> signature detection (ET Open/Pro rules), protocol logging (DNS, HTTP, TLS, flows) in <code>eve.json</code>, file extraction, inline blocking (IPS mode), multi-threaded capture.</p>
+<p><span class="lbl">I used it to:</span> place two sensors (Servers segment and a stealth DMZ sensor with no IP); load ET Open plus 8 custom rules; detect scans, scanner user agents, DNS tunnelling, SSH floods and DMZ→Mgmt traffic; <b>tune</b> a noisy rule (1,700 alerts per scan → 1 per minute); reload rules live with <code>kill -USR2</code>; fix a crash loop (IR-006).</p>
+<pre>jq -c 'select(.event_type=="alert") | [.timestamp,.src_ip,.dest_ip,.alert.signature_id,.alert.signature]' /var/log/suricata/eve.json
+suricata -T -c /etc/suricata/suricata.yaml        suricata-update        kill -USR2 $(pidof suricata)</pre></div>
+
+<div class="tool"><h4>Wazuh 4.14 <span class="tag">SIEM / XDR</span></h4>
+<p><span class="lbl">What it is:</span> an open-source security platform: agents collect logs and system data, the manager decodes them, applies rules (levels 0–15) and raises alerts.</p>
+<p><span class="lbl">Can do:</span> log analysis, file integrity monitoring, security configuration assessment (CIS), vulnerability detection, rootkit checks, <b>active response</b>, compliance mapping (PCI DSS, GDPR ...); dashboards with the indexer.</p>
+<p><span class="lbl">I used it to:</span> run a manager with agents on srv01 and dmz-web01; ingest Suricata <code>eve.json</code> and fw01 syslog; correlate one attacker across network, web and SSH logs; automatically block the brute-forcing host with <code>firewall-drop</code> for 600 s; read alerts with jq (no indexer: not enough RAM).</p>
+<pre>/var/ossec/bin/agent_control -l
+jq -c 'select(.rule.level&gt;=10) | [.timestamp,.agent.name,.rule.id,.rule.description,.data.srcip]' /var/ossec/logs/alerts/alerts.json
+tail /var/ossec/logs/active-responses.log          <span class="c"># on the agent</span></pre></div>
+
+<h3>Assessment and analysis</h3>
+<div class="tool"><h4>Nmap <span class="tag">scanner</span></h4>
+<p><span class="lbl">What it is:</span> the standard network scanner. <span class="lbl">Can do:</span> host discovery, TCP/UDP port scans, service and version detection, OS detection, NSE scripts for checks and enumeration, many output formats.</p>
+<p><span class="lbl">I used it to:</span> discover hosts per zone (proving which zones are invisible), scan all 65,535 TCP ports, enumerate SSH and DNS with NSE, and generate attack traffic for the IDS.</p>
+<pre>nmap -sn -PE -PS22,80,443 -n 192.168.20.0/24     nmap -sS -p- --min-rate 800 192.168.20.20
+nmap -sV -sC -p22,53,80,443 192.168.20.20        nmap -p22 --script ssh-auth-methods,ssh2-enum-algos 192.168.20.20</pre>
+<p class="small"><b>open</b> = a service answered (SYN/ACK); <b>closed</b> = RST (reachable, nothing listening); <b>filtered</b> = no answer (a firewall dropped it).</p></div>
+
+<div class="tool"><h4>Wireshark, tshark and tcpdump <span class="tag">packet analysis</span></h4>
+<p><span class="lbl">What they are:</span> tcpdump captures packets on the command line; Wireshark is the GUI analyser; tshark is Wireshark's command-line engine.</p>
+<p><span class="lbl">Can do:</span> capture and display filters, protocol decoding, follow TCP streams, statistics (protocol hierarchy, conversations, I/O graphs), export objects.</p>
+<p><span class="lbl">I used it to:</span> capture lab traffic on kali01 and analyse it: clear-text DNS/HTTP vs encrypted SSH, RST (closed) vs silence (firewall drop), one-way conversations; capture SNMPv3 to prove encryption.</p>
+<pre>tcpdump -i eth0 -n -s0 -w lab.pcap
+tshark -r lab.pcap -q -z io,phs          tshark -r lab.pcap -q -z conv,ip
+tshark -r lab.pcap -Y "tcp.flags.reset==1"    tshark -r lab.pcap -Y dns -T fields -e dns.qry.name -e dns.flags.rcode</pre></div>
+
+<div class="grid2">
+<div class="tool"><h4>Hydra</h4><p>Online password-guessing tool for SSH, FTP, HTTP forms and more. <b>Used:</b> brute-force simulation; it stopped at once because the server allows only keys, which proved the hardening.</p></div>
+<div class="tool"><h4>dig, curl, nc</h4><p><b>dig</b> queries DNS; <b>curl</b> makes HTTP requests (custom user agents for scanner tests); <b>nc -z</b> tests whether a TCP port answers. Used in the matrix, the DNS tests and the attack simulation.</p></div>
+<div class="tool"><h4>jq</h4><p>Command-line JSON processor. <b>Used:</b> to filter and count Suricata <code>eve.json</code> and Wazuh <code>alerts.json</code>, since there was no dashboard.</p></div>
+<div class="tool"><h4>Cisco Packet Tracer 9.0</h4><p>Cisco's network simulator. <b>Used:</b> CORE-SW1 (2960) and FW01 (2911): VLANs, 802.1Q trunk, native VLAN 999, port security, DHCP snooping, BPDU guard, router-on-a-stick, zone ACLs, DHCP pool; end-device tests.</p></div>
+</div>
+
+<h3>Automation and tooling</h3>
+<div class="grid2">
+<div class="tool"><h4>Bash and PowerShell</h4><p>All builds are scripts: PowerShell + <code>VBoxManage</code> for VMs, Bash for server setup, tests and assessments, so the lab can be rebuilt.</p></div>
+<div class="tool"><h4>Python</h4><p>Idempotent config edits (<code>suricata-config.py</code>, <code>wazuh-manager-config.py</code>), the Packet Tracer config generator, and <b>Playwright</b> for logged-in GUI screenshots.</p></div>
+<div class="tool"><h4>PHP (pfSense config API)</h4><p><code>pfsense-configure.php</code> writes interfaces, aliases, rules, NAT, DHCP and syslog through pfSense's own functions, so the whole firewall is code.</p></div>
+<div class="tool"><h4>Git and GitHub</h4><p>Version control with small, frequent commits, a git-ignored secrets folder and a secret scan before every commit.</p></div>
+</div>
+</div>
+
+<!-- ============================== 6 ============================== -->
+<div class="section">
+<h2>6. Command cheat sheet</h2>
+<h3>Access (from the Windows host, Git Bash)</h3>
+<pre>bash .lab-local/fw.sh                     <span class="c"># root@fw01 (127.0.0.1:2250)</span>
+bash .lab-local/mon.sh                    <span class="c"># monitor01 (127.0.0.1:2230); LibreNMS http://127.0.0.1:8030</span>
+bash .lab-local/in.sh srv01 'cmd'         <span class="c"># inner VM through fw01 as jump host (srv01, dmz-web01, kali01, client01)</span>
+https://127.0.0.1:8443                    <span class="c"># pfSense GUI</span>
+VBoxManage list runningvms ; VBoxManage startvm kali01 --type headless ; VBoxManage controlvm kali01 acpipowerbutton</pre>
+
+<h3>pfSense (fw01)</h3>
+<pre>pfctl -sr                 <span class="c"># loaded rules</span>         pfctl -s state | grep 192.168.40.10   <span class="c"># live states</span>
+pfctl -s info             <span class="c"># counters</span>              clog -f /var/log/filter.log            <span class="c"># firewall log</span>
+php -f /root/pfsense-configure.php /root/pel.env      <span class="c"># re-apply the whole policy</span>
+sockstat -4l              <span class="c"># listening sockets</span>     pgrep -l snmpd dhcpd</pre>
+
+<h3>Linux servers</h3>
+<pre>ip -br a ; ip route ; resolvectl status      sudo netplan try / apply
+sudo ss -tulpn                               systemctl status nginx named ssh snmpd wazuh-agent
+sudo ufw status numbered ; sudo tail /var/log/ufw.log
+sudo sshd -t ; sudo sshd -T | grep -i password
+dig @192.168.20.20 www.corp.lab ; dig +short -x 192.168.20.20
+sudo journalctl -u named | grep query: ; sudo journalctl -u ssh --since -10min
+curl -I http://192.168.50.10</pre>
+
+<h3>monitor01</h3>
+<pre>systemctl is-active suricata wazuh-manager rsyslog
+sudo jq -c 'select(.event_type=="alert")|[.src_ip,.alert.signature_id,.alert.signature]' /var/log/suricata/eve.json | tail
+sudo jq -r '.alert.signature' /var/log/suricata/eve.json | sort | uniq -c | sort -rn | head    <span class="c"># top signatures</span>
+sudo /var/ossec/bin/agent_control -l
+sudo jq -r '[.rule.id,.rule.level,.rule.description]|@tsv' /var/ossec/logs/alerts/alerts.json | sort | uniq -c | sort -rn | head
+sudo tail -f /var/log/remote/all-devices.log | grep filterlog
+sudo -u librenms lnms device:poll 192.168.20.1
+sudo bash -c '. /root/lab-secrets.env; snmpget -v3 -l authPriv -u monitoruser -a SHA -A "$SNMP_AUTH" -x AES -X "$SNMP_PRIV" 192.168.20.1 sysName.0'</pre>
+
+<h3>kali01 (lab targets only)</h3>
+<pre>nmap -sn -n 192.168.20.0/24 ; nmap -sS -p- -n 192.168.20.20 ; nmap -sV -sC -p22,53,80 192.168.20.20
+curl -A "gobuster/3.6" http://192.168.50.10/.git/config
+dig @192.168.20.20 $(head -c 30 /dev/urandom | od -An -tx1 | tr -d ' \n').exfil-test.corp.lab
+for u in admin root test; do ssh -o BatchMode=yes $u@192.168.20.20 true; done
+sudo tcpdump -i eth0 -n -w lab.pcap ; tshark -r lab.pcap -q -z conv,ip</pre>
+
+<h3>Wazuh active response check (srv01)</h3>
+<pre>sudo iptables -S | grep DROP              <span class="c"># -A INPUT -s 192.168.40.10/32 -j DROP while blocked</span>
+sudo tail /var/ossec/logs/active-responses.log</pre>
+
+<h3>Cisco (Packet Tracer)</h3>
+<pre>show vlan brief ; show interfaces trunk ; show interfaces status ; show port-security ; show ip dhcp snooping
+show ip interface brief ; show ip dhcp binding ; show access-lists ; show cdp neighbors ; show running-config
+configure terminal / interface gi0/1 / shutdown / no shutdown / end / write memory</pre>
+
+<h3>Tests</h3>
+<pre>bash tests/run-all.sh                                         <span class="c"># 36 checks</span>
+bash .lab-local/in.sh srv01 "bash -s srv01" &lt; cybersecurity/scripts/connectivity-matrix.sh   <span class="c"># one host's matrix</span></pre>
+</div>
+
+<!-- ============================== 7 ============================== -->
+<div class="section">
+<h2>7. Results and evidence</h2>
+<div class="grid2">
+<div class="box tip"><b>Health check:</b> <code>tests/run-all.sh</code> → <b>36 passed, 0 failed, 0 skipped</b> with all six VMs on.
+It covers fw01 (rules, DHCP, SNMP, syslog), monitor01 services, Suricata rules and events, Wazuh agents, LibreNMS, SNMPv3 to 3 devices
+(and v2c refused), SSH hardening, UFW, DNS, the matrix from 5 hosts, and a secret scan of the repository.</div>
+<div class="box tip"><b>Segmentation:</b> connectivity matrix <b>51/51</b>: every allowed path works and every forbidden path is blocked,
+from srv01, dmz-web01, monitor01, kali01 and client01.</div>
+</div>
+<img class="fig" src="../../screenshots/packet-tracer/pt-00-topology.png" style="max-height:72mm;object-fit:contain">
+<p class="cap">Packet Tracer topology: FW01 (2911) router-on-a-stick, CORE-SW1 (2960), six end devices, all links up.</p>
+<div class="grid2">
+<div><img class="fig" src="../../screenshots/packet-tracer/pt-05-client01-dhcp-isolation-dns.jpg"><p class="cap">CLIENT01: DHCP lease, gateway reachable, ADMIN-PC blocked, DNS works.</p></div>
+<div><img class="fig" src="../../screenshots/packet-tracer/pt-09-fw01-users-acl-hits.jpg"><p class="cap">USERS-IN ACL hit counters: the allowed and the denied entries both match.</p></div>
+</div>
+<img class="fig" src="../../screenshots/pfsense-05-rules-users.png" style="max-height:80mm;object-fit:contain">
+<p class="cap">pfSense rules on the USERS interface: only DNS, SSH and web to srv01, web to the DMZ, ping to the gateway; block PRIVATE_NETS (logged); then internet.</p>
+<img class="fig" src="../../screenshots/librenms-01-devices.png" style="max-height:60mm;object-fit:contain">
+<p class="cap">LibreNMS polling fw01, srv01 and dmz-web01 over SNMPv3 authPriv.</p>
+
+<h3>Evidence map</h3>
+<table>
+<tr><th>Evidence</th><th>Shows</th></tr>
+<tr><td><code>cybersecurity/evidence/a01–a03*.txt</code></td><td>raw Nmap output (discovery, all ports, services)</td></tr>
+<tr><td><code>a04-ssh-before/after.txt</code></td><td>SSH auth methods and algorithms before and after hardening</td></tr>
+<tr><td><code>a06-snmpv3.txt</code>, <code>a06-snmpv3-before-fix.txt</code></td><td>SNMPv3 test matrix before and after the IR-005 fix</td></tr>
+<tr><td><code>a07-lab-traffic.pcap</code>, <code>a07-wireshark-analysis.txt</code></td><td>the capture, openable in Wireshark, and its analysis</td></tr>
+<tr><td><code>a08-dns-investigation.txt</code>, <code>a09-suricata-alerts.txt</code>, <code>a10-*.txt</code></td><td>DNS logs, IDS alerts, SIEM alerts and active response</td></tr>
+<tr><td><code>connectivity-matrix.csv</code></td><td>51 rows: source, target, service, expected, result, PASS</td></tr>
+<tr><td><code>screenshots/</code></td><td>13 pfSense, 5 LibreNMS, 10 Packet Tracer</td></tr>
+<tr><td><code>tests/last-run.txt</code></td><td>the 36/36 health check output</td></tr>
+</table>
+</div>
+
+<!-- ============================== 8 ============================== -->
+<div class="section">
+<h2>8. Incident reports in short</h2>
+<p>All reports follow the workflow in <code>troubleshooting/workflow.md</code>: define → layer 1-2 → layer 3 → policy →
+layer 4 → layer 7 → evidence → one fix at a time → record.</p>
+<table>
+<tr><th style="width:9%">ID</th><th style="width:24%">Title</th><th>Root cause and response</th><th style="width:18%">Lesson</th></tr>
+<tr><td>IR-001</td><td>Unauthorised port discovery</td><td>Nmap sweeps from kali01. Suricata 9000001 + ET 2024364, Wazuh 86601. Users/Management showed 0 hosts because fw01 drops silently.</td><td>Tune scan rules: one alert per source, not thousands.</td></tr>
+<tr><td>IR-002</td><td>Suspicious DNS</td><td>50-char random labels to <code>exfil-test.corp.lab</code> and a 150-query burst. Seen by Suricata 9000010/11 and BIND errors (Wazuh 12105). Classified as the authorised test.</td><td>Long labels + NXDOMAIN + volume = tunnelling pattern.</td></tr>
+<tr><td>IR-003</td><td>Failed SSH logins</td><td>12 invalid users in seconds → 5710 ×12 → 5712 (level 10) → <code>firewall-drop</code> on srv01 for 600 s; no successful login.</td><td>Detection must follow hardening (5712 added).</td></tr>
+<tr><td>IR-004</td><td>fw01 SNMPv3 "Unknown user"</td><td>The v3 user was in net-snmp's persistent store, which is converted once and was lost on restart. Fix: createUser in the root-only config (mode 600).</td><td>Know where a daemon keeps its keys.</td></tr>
+<tr><td>IR-005</td><td>authNoPriv accepted</td><td><code>net-snmp-create-v3-user</code> also wrote a bare <code>rouser monitoruser</code> that allowed no encryption. Removed it; retested.</td><td>Test the negative cases, not only "it works".</td></tr>
+<tr><td>IR-006</td><td>Suricata crash loop</td><td>Duplicate af-packet entries with the same cluster-id, and 10 threads missing the start deadline. Idempotent config, 1 thread per NIC.</td><td>"active" in systemd ≠ healthy; check capture stats.</td></tr>
+<tr><td>IR-007</td><td>DMZ → Management</td><td>dmz-web01 tried 192.168.10.x. Blocked and logged by fw01; DMZ sensor alerted (9000030) before the drop.</td><td>Defence in depth: policy + detection.</td></tr>
+</table>
+
+<h2 style="margin-top:18px">9. Problems hit and how they were solved</h2>
+<table>
+<tr><th style="width:4%">#</th><th style="width:28%">Problem</th><th style="width:30%">Cause</th><th>Fix</th></tr>
+<tr><td>1</td><td>VBoxManage unattended failed</td><td><code>--install-additions=false</code> is not a valid flag</td><td>removed the flag</td></tr>
+<tr><td>2</td><td>pfSense ISO at 30 KB/s</td><td>slow official mirror</td><td>community mirror with parallel ranges, then verified Netgate's SHA-256</td></tr>
+<tr><td>3</td><td>monitor01 could not resolve names</td><td>resolved still pointed at the old lab's BIND</td><td>reset DNS in <code>resolved.conf</code>, netplan DNS</td></tr>
+<tr><td>4</td><td><code>suricata -T -q</code> hung</td><td><code>-q</code> means NFQUEUE, not quiet</td><td>plain <code>-T</code></td></tr>
+<tr><td>5</td><td>Suricata restart loop</td><td>non-idempotent config, too many threads</td><td>IR-006</td></tr>
+<tr><td>6</td><td>wazuh-manager start timeout</td><td>first start slower than systemd's 90 s on 2 GB</td><td><code>TimeoutStartSec=600</code>, vulnerability detection off</td></tr>
+<tr><td>7</td><td>A Python escape wrote control bytes into ossec.conf</td><td>nested quoting in a shell heredoc</td><td>repaired the file; used sed and separate script files</td></tr>
+<tr><td>8</td><td>srv01 renamed itself after reboot</td><td>cloud-init</td><td><code>preserve_hostname: true</code></td></tr>
+<tr><td>9</td><td>dmz-web01 had no DNS</td><td>policy blocks DMZ → internal DNS</td><td>public resolver for the DMZ</td></tr>
+<tr><td>10</td><td>SNMPv3 faults</td><td>see IR-004 / IR-005</td><td>fixed in the scripts</td></tr>
+<tr><td>11</td><td>Hydra stopped at once</td><td>password auth disabled (by design)</td><td>invalid-user logins to simulate brute force</td></tr>
+<tr><td>12</td><td>fw01 logged as <code>_gateway</code>, every line twice</td><td>no hosts entry; "everything" + "filter" both sent</td><td>hosts entry; send "everything" only</td></tr>
+<tr><td>13</td><td>Port-scan rule flooded the SIEM</td><td><code>threshold type threshold, 10 s</code></td><td><code>type both, 60 s</code>: 1 alert per source per minute</td></tr>
+<tr><td>14</td><td>PT trunk down after config</td><td>cross-over cable router ↔ switch</td><td>straight-through cable; check layer 1 first</td></tr>
+<tr><td>15</td><td>Typed text lost in the PT CLI</td><td>automation types via the clipboard</td><td>PT's own Paste button</td></tr>
+<tr><td>16</td><td>Capture showed only one-way traffic</td><td>kali01 was still blocked by active response</td><td>waited for the 600 s timeout and re-captured</td></tr>
+</table>
+</div>
+
+<!-- ============================== 10/11 ============================== -->
+<div class="section">
+<h2>10. Security decisions</h2>
+<ul>
+<li><b>Default deny everywhere:</b> on fw01 between zones and on every host with UFW (defence in depth: one mistake is not enough).</li>
+<li><b>Least privilege:</b> each zone gets only the ports it needs; the Security zone reaches only named test targets.</li>
+<li><b>Management isolation:</b> no zone can start a session into Management; DMZ → Management is blocked <i>and</i> alerted.</li>
+<li><b>Encrypted management:</b> SSH keys only; SNMPv3 authPriv only; the pfSense GUI over HTTPS.</li>
+<li><b>Bastion access:</b> inner VMs have no host port; all admin access goes through fw01.</li>
+<li><b>Logging:</b> blocks are logged, sent to a central collector, and analysed by the SIEM.</li>
+<li><b>Detection + automatic response:</b> IDS on the two most important segments, SIEM correlation, time-limited blocking.</li>
+<li><b>Information hiding:</b> nginx and BIND versions hidden; filtered ports give no answer.</li>
+<li><b>Secrets hygiene:</b> secrets generated randomly, kept in a git-ignored folder and mode-600 files, never printed, scanned before every commit; the Cisco configs use placeholders.</li>
+<li><b>Ethics and scope:</b> all scanning and attacks only against lab hosts, from the authorised zone.</li>
+</ul>
+
+<h2 style="margin-top:16px">11. Limitations and honest scope</h2>
+<table>
+<tr><th style="width:32%">Limitation</th><th>Why, and what a production version would do</th></tr>
+<tr><td>Wazuh without indexer/dashboard</td><td>OpenSearch needs about 4 GB more RAM. Production: the full stack with dashboards and retention.</td></tr>
+<tr><td>Cisco part is in Packet Tracer</td><td>No licensed IOS images. PT has no SNMPv3, so SNMPv3 is shown on pfSense/Ubuntu. FW01 (2911) stands in for pfSense with the same policy as ACLs.</td></tr>
+<tr><td>Zones are VirtualBox internal networks</td><td>Equivalent to access VLANs behind the firewall; real 802.1Q tagging is shown in Packet Tracer.</td></tr>
+<tr><td>monitor01 is a clone of an earlier lab server</td><td>Saved time and disk; old devices, logs and services removed.</td></tr>
+<tr><td>Active response blocks only on the attacked host</td><td>Production: also push the IP to a firewall alias so the attacker cannot move to the next server.</td></tr>
+<tr><td>No HTTPS on the web servers</td><td>Finding N-1: port 443 allowed but unused. Next step: TLS certificates, or close 443.</td></tr>
+<tr><td>NULL/XMAS scans not alerted</td><td>pf scrub drops them before the sensor; a sensor in front of the firewall would see them.</td></tr>
+<tr><td>Small VMs, one laptop</td><td>VMs are started a few at a time; kali01 runs without a desktop.</td></tr>
+</table>
+</div>
+
+<!-- ============================== 12 ============================== -->
+<div class="section">
+<h2>12. Interview preparation</h2>
+
+<h3>12.1 Two-minute project pitch</h3>
+<div class="box key">"I built a segmented enterprise network lab on my laptop with five zones: Management, Servers, Users, a Security
+zone and a DMZ, all behind a pfSense firewall with a default-deny, least-privilege policy that I wrote as code. Ubuntu servers
+provide DNS and web, each with its own host firewall and hardened, key-only SSH. A monitoring server runs LibreNMS over
+SNMPv3, Suricata as an IDS on the Servers and DMZ segments, and Wazuh as the SIEM.<br><br>
+Then I attacked it from Kali, inside the lab only: Nmap scans, web scanner traffic, DNS-tunnelling-style queries and an SSH
+brute force. Suricata detected them, Wazuh correlated them to one source, and active response blocked the attacker
+automatically for ten minutes. I wrote seven incident reports. Three of them are real faults I found while building, for
+example an SNMP agent that accepted unencrypted requests.<br><br>
+I also built the Cisco version in Packet Tracer, with VLANs, a trunk, port security and router-on-a-stick ACLs. Everything is
+proven: a connectivity matrix of 51 tests and an automated health check with 36 checks that all pass. It's all on GitHub."</div>
+
+<h3>12.2 STAR stories (use them for "tell me about a problem you solved")</h3>
+<div class="box"><b>1. The IDS that looked healthy but was blind.</b><br>
+<b>S:</b> During the first scans Suricata produced no alerts, but systemd said "active". <b>T:</b> Find out why the IDS saw nothing.
+<b>A:</b> I checked capture stats (<code>kernel_packets = 0</code>) and the journal, and found a restart every 3 minutes. The
+af-packet config had duplicate interfaces with the same cluster-id, and 10 threads missed the start deadline. I rewrote the config
+idempotently with one thread per NIC. <b>R:</b> Stable sensor, alerts on both segments; documented as IR-006. Lesson: "running" is not "working".</div>
+<div class="box"><b>2. Monitoring that was less secure than the policy.</b><br>
+<b>S:</b> Policy said SNMPv3 authPriv only. <b>T:</b> Prove it, including the negative cases. <b>A:</b> I tested every security level and
+found the Ubuntu agents accepted authNoPriv, because the user-creation tool adds a bare <code>rouser</code> line. I removed it in
+the build script and re-ran the test. <b>R:</b> Only authPriv works; tcpdump shows the payload encrypted. Lesson: test what should fail.</div>
+<div class="box"><b>3. Detection had to follow hardening.</b><br>
+<b>S:</b> Active response was tied to "multiple failed passwords". <b>T:</b> Block an SSH brute force. <b>A:</b> After hardening, passwords
+were impossible, so attacks appeared as invalid-user events (5710 → 5712) and the response never fired. I added 5712 to the rule list.
+<b>R:</b> The attacker was blocked within seconds and unblocked after 600 s. Lesson: when you change a control, re-check the detections built on it.</div>
+<div class="box"><b>4. Tuning an alert flood.</b><br>
+<b>S:</b> One full port scan created ~1,700 IDS alerts per target and 2,700+ SIEM events. <b>A:</b> I changed the threshold from
+"one alert per 40 SYNs" to "one alert per source per minute" and reloaded live. <b>R:</b> Same detection, almost no noise. Lesson: alert fatigue is a real risk in a SOC.</div>
+
+<h3>12.3 Technical questions and answers</h3>
+<h4>Networking and firewall</h4>
+<div class="qa"><div class="q">Q: Why segment a network into zones?</div><div class="a">To limit what an attacker can reach after one host is compromised (lateral movement), to apply different rules to different risk levels, and to contain broadcasts and faults. In this lab a hacked DMZ server cannot reach any internal zone.</div></div>
+<div class="qa"><div class="q">Q: What is a DMZ?</div><div class="a">A zone for services exposed to the internet (web, mail). It is separated from the internal network, so if a public server is hacked, the attacker is still outside. Here the DMZ can reach only the Wazuh port on monitor01 and the internet.</div></div>
+<div class="qa"><div class="q">Q: What does "default deny" and "least privilege" mean in your rules?</div><div class="a">Anything not explicitly passed is blocked, and each zone is allowed only the specific destinations and ports it needs. Users get DNS, SSH and web to srv01 and web to the DMZ, nothing else internal.</div></div>
+<div class="qa"><div class="q">Q: Stateful vs stateless firewall?</div><div class="a">A stateful firewall (pfSense) tracks connections, so replies are allowed automatically. A stateless ACL (Cisco extended ACL) checks each packet alone, so return traffic needs rules such as <code>permit tcp ... established</code>, which is how the Cisco version is written.</div></div>
+<div class="qa"><div class="q">Q: In pfSense, where do rules apply and in what order?</div><div class="a">On the interface where traffic enters the firewall, top to bottom, first match wins. That is why "block to PRIVATE_NETS" sits above "pass to any": internal zones are blocked and the internet is still allowed.</div></div>
+<div class="qa"><div class="q">Q: How did you test the firewall?</div><div class="a">A script on every host tries each target and port and compares the result with the expected policy, giving a CSV matrix: 51/51 PASS. Plus firewall logs and the Nmap view from the Security zone.</div></div>
+<div class="qa"><div class="q">Q: Difference between "closed" and "filtered" in Nmap?</div><div class="a">Closed: the host answered with a TCP RST, so it is reachable but nothing listens. Filtered: no answer at all, usually a firewall dropping the packet. Silent drops give an attacker less information.</div></div>
+<div class="qa"><div class="q">Q: What is router-on-a-stick?</div><div class="a">One physical router port carries several VLANs over an 802.1Q trunk, with one sub-interface (and gateway IP) per VLAN. FW01 G0/0.10 to .50 in Packet Tracer.</div></div>
+<div class="qa"><div class="q">Q: Why native VLAN 999 and unused ports shut down?</div><div class="a">Untagged traffic should land in an unused VLAN to prevent VLAN-hopping tricks; unused ports are shut and parked so nobody can plug in and join a real VLAN.</div></div>
+<div class="qa"><div class="q">Q: What do port security and DHCP snooping protect against?</div><div class="a">Port security limits the MAC addresses on a port (stops unauthorised devices and MAC flooding). DHCP snooping allows DHCP offers only from trusted ports (stops rogue DHCP servers and man-in-the-middle).</div></div>
+<div class="qa"><div class="q">Q: Your trunk did not come up in Packet Tracer. How did you troubleshoot?</div><div class="a">Bottom-up: the router was up/down and the switch port down/down (disabled), with no CDP neighbour. Shut/no shut and trunk settings changed nothing, so I went to layer 1: the cable was a cross-over. A straight-through cable fixed it.</div></div>
+
+<h4>Monitoring</h4>
+<div class="qa"><div class="q">Q: Why SNMPv3 instead of v2c?</div><div class="a">v1/v2c send a community string in clear text and have no encryption. v3 has users with SHA authentication and AES encryption (authPriv). I disabled v1/v2c completely and proved it with tests.</div></div>
+<div class="qa"><div class="q">Q: What are the SNMPv3 security levels?</div><div class="a">noAuthNoPriv (username only), authNoPriv (authenticated, not encrypted), authPriv (authenticated and encrypted). Only authPriv was allowed.</div></div>
+<div class="qa"><div class="q">Q: What does LibreNMS give you?</div><div class="a">Auto-discovery over SNMP, per-port traffic graphs, device health, an event log and alerting. Here it monitored the firewall and two servers.</div></div>
+
+<h4>IDS / SIEM</h4>
+<div class="qa"><div class="q">Q: IDS vs IPS? Which did you use?</div><div class="a">An IDS watches a copy of the traffic and alerts; an IPS sits inline and can drop packets. I used Suricata as an IDS on promiscuous sensor NICs, like a SPAN port, so a sensor failure cannot cut the network.</div></div>
+<div class="qa"><div class="q">Q: Why does the DMZ sensor have no IP address?</div><div class="a">It only listens. Without an IP it cannot be reached or attacked over the network, and it sees DMZ traffic before the firewall filters it.</div></div>
+<div class="qa"><div class="q">Q: How do you write a Suricata rule?</div><div class="a">action, protocol, source → destination, then options: <code>msg</code>, content or pcre matches, flags, flow, threshold, classtype, <code>sid</code> and <code>rev</code>. Example: an alert when a DNS label is 40+ alphanumeric characters, for tunnelling.</div></div>
+<div class="qa"><div class="q">Q: What is a SIEM and what did Wazuh do here?</div><div class="a">A system that collects logs from many sources, normalises them and applies correlation rules to raise alerts. Wazuh took agent logs, Suricata's eve.json and pfSense syslog, linked one attacker across all of them, and ran active response.</div></div>
+<div class="qa"><div class="q">Q: How does Wazuh active response work?</div><div class="a">When a configured rule fires (5712, brute force), the manager tells the agent to run a script (<code>firewall-drop</code>) that adds an iptables DROP for the source IP. A timeout removes it later (600 s).</div></div>
+<div class="qa"><div class="q">Q: What is a false positive and how did you deal with noise?</div><div class="a">An alert for benign activity. More common here was too <i>many</i> true alerts: one scan made 1,700 alerts. I tuned the threshold to one alert per source per minute, which keeps the detection without flooding the SIEM.</div></div>
+<div class="qa"><div class="q">Q: Why did NULL and XMAS scans not alert?</div><div class="a">pfSense's scrub drops packets with impossible flag combinations before they reach the segment the sensor watches. The firewall had already neutralised them; a sensor in front of the firewall would show them.</div></div>
+
+<h4>Linux and hardening</h4>
+<div class="qa"><div class="q">Q: What did you change in SSH, and why?</div><div class="a">Keys only, no root login, AllowUsers, 3 auth tries, 30 s login grace, modern ciphers/MACs/key exchange, VERBOSE logging and a banner. It removes password attacks entirely and gives the SIEM detailed logs. I test with <code>sshd -t</code> before reloading so I cannot lock myself out.</div></div>
+<div class="qa"><div class="q">Q: Why a host firewall when you already have pfSense?</div><div class="a">Defence in depth: if a firewall rule is wrong or traffic stays inside one zone, the host still protects itself. UFW only allows what each server needs.</div></div>
+<div class="qa"><div class="q">Q: How do you check which services a server exposes?</div><div class="a"><code>ss -tulpn</code> on the host, then compare with an external <code>nmap</code> scan and the firewall rules.</div></div>
+
+<h4>Analysis and incident response</h4>
+<div class="qa"><div class="q">Q: How do you spot a firewall drop in Wireshark?</div><div class="a">A one-way conversation: SYNs (often retransmitted) and no reply at all. A closed port answers with RST. Statistics → Conversations shows the one-way flows quickly.</div></div>
+<div class="qa"><div class="q">Q: What signs point to DNS tunnelling?</div><div class="a">Long random-looking subdomains, many unique names under one domain, high query volume from one host, unusual record types (TXT), lots of NXDOMAIN.</div></div>
+<div class="qa"><div class="q">Q: Walk me through your incident response process.</div><div class="a">Detect and triage (alert, severity, source), scope (which hosts, since when), contain (block the source), investigate (logs on each layer), eradicate and recover, then write the report with timeline, root cause and lessons. IR-003 is a full example.</div></div>
+<div class="qa"><div class="q">Q: What is your troubleshooting method?</div><div class="a">Define the exact failure, then go up the layers: link/VLAN, IP and route, policy (firewall, then host firewall), port, application and logs; capture packets when unclear; change one thing at a time and re-test.</div></div>
+
+<h4>Project and behaviour</h4>
+<div class="qa"><div class="q">Q: What would you improve with more resources?</div><div class="a">The full Wazuh stack with dashboards; HTTPS on the web servers; pushing active-response blocks to the firewall; a sensor in front of the firewall; real Cisco hardware or CML; alerting from LibreNMS to email or chat.</div></div>
+<div class="qa"><div class="q">Q: What was the hardest part?</div><div class="a">Fitting it into 16 GB of RAM and making every service stable: Suricata and Wazuh both failed to start at first, and I had to find out why instead of just restarting them.</div></div>
+<div class="qa"><div class="q">Q: How did you keep secrets out of a public repo?</div><div class="a">Random secrets in a git-ignored folder and mode-600 files on the VMs, placeholders in configs, never printed, and a scan of staged files for every secret value and private-key header before each commit. The test runner repeats the scan.</div></div>
+<div class="qa"><div class="q">Q: Did you do this ethically?</div><div class="a">Yes. All scans and attacks ran only inside the isolated lab, from the Security zone, against the two targets named in scope.</div></div>
+
+<h3>12.4 Numbers to remember</h3>
+<table>
+<tr><td>5 zones, 6 VMs, 1 firewall</td><td>36/36 health checks, 51/51 matrix</td><td>12 assignments, 4 scenarios, 7 IRs</td></tr>
+<tr><td>ET Open ~53,000 + 8 lab rules</td><td>1,700 → 1 alert per minute after tuning</td><td>Block time 600 s, Wazuh rule 5712 (level 10)</td></tr>
+<tr><td>SNMPv3: SHA + AES, authPriv only</td><td>pfSense 2.7.2, Suricata 8.0.8, Wazuh 4.14</td><td>Ubuntu 22.04, Kali 2025.4, PT 9.0</td></tr>
+</table>
+
+<h3>12.5 Questions you can ask the interviewer</h3>
+<ul>
+<li>How is your network segmented today, and how are firewall changes reviewed?</li>
+<li>Which SIEM and IDS do you use, and how do you handle alert tuning?</li>
+<li>What does the first 90 days look like for someone in this role?</li>
+<li>Is there a lab or test environment where engineers can try changes safely?</li>
+</ul>
+</div>
+
+<!-- ============================== 13 ============================== -->
+<div class="section">
+<h2>13. Glossary</h2>
+<table>
+<tr><th style="width:22%">Term</th><th>Meaning</th></tr>
+<tr><td>Active response</td><td>An automatic action taken by the SIEM when a rule fires, such as blocking an IP.</td></tr>
+<tr><td>af-packet</td><td>Linux capture method Suricata uses to read packets from a NIC at high speed.</td></tr>
+<tr><td>Alias (pfSense)</td><td>A named group of addresses or ports used in rules (PRIVATE_NETS, WEB_PORTS).</td></tr>
+<tr><td>authPriv</td><td>SNMPv3 level with authentication and encryption.</td></tr>
+<tr><td>Bastion / jump host</td><td>The one host you SSH through to reach internal systems.</td></tr>
+<tr><td>Default deny</td><td>Block everything unless a rule explicitly allows it.</td></tr>
+<tr><td>Defence in depth</td><td>Several independent layers of security, so one failure is not enough.</td></tr>
+<tr><td>DMZ</td><td>A zone for internet-facing services, separated from the internal network.</td></tr>
+<tr><td>ET Open</td><td>Emerging Threats' free Suricata/Snort rule set.</td></tr>
+<tr><td>eve.json</td><td>Suricata's JSON event log (alerts, DNS, HTTP, flows).</td></tr>
+<tr><td>Idempotent</td><td>A script that can be re-run safely and always gives the same end state.</td></tr>
+<tr><td>IDS / IPS</td><td>Intrusion detection (alerts) / prevention (blocks inline).</td></tr>
+<tr><td>Lateral movement</td><td>An attacker moving from one compromised host to others.</td></tr>
+<tr><td>Least privilege</td><td>Grant only the minimum access needed.</td></tr>
+<tr><td>Linked clone</td><td>A VM that shares the base disk and stores only its own changes.</td></tr>
+<tr><td>NXDOMAIN</td><td>DNS answer "this name does not exist".</td></tr>
+<tr><td>Promiscuous mode</td><td>A NIC that receives all frames on the segment, not only its own.</td></tr>
+<tr><td>Router-on-a-stick</td><td>Inter-VLAN routing on one trunk port with sub-interfaces.</td></tr>
+<tr><td>Scrub (pf)</td><td>Packet normalisation that drops malformed packets.</td></tr>
+<tr><td>SID</td><td>Signature ID of an IDS rule.</td></tr>
+<tr><td>SIEM</td><td>Security Information and Event Management: central log collection and correlation.</td></tr>
+<tr><td>SPAN port</td><td>A switch port that receives a copy of traffic for monitoring.</td></tr>
+<tr><td>Stateful firewall</td><td>Tracks connections and allows reply traffic automatically.</td></tr>
+<tr><td>Threshold (Suricata)</td><td>Limits how often a rule alerts, for example once per source per minute.</td></tr>
+<tr><td>USM</td><td>SNMPv3 User-based Security Model.</td></tr>
+</table>
+<div class="box tip" style="margin-top:14px"><b>Repository:</b> github.com/muttakin210/Enterprise-Infrastructure-Security-Lab. Start with
+<code>README.md</code>, then <code>docs/assignments.md</code> for the index of every assignment and its evidence.</div>
+</div>
+
+</body>
+</html>

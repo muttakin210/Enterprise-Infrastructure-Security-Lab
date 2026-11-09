@@ -69,7 +69,7 @@ troubleshooting/ workflow and incident reports
 lab/             scripts that build the VMs and take the GUI screenshots
 tests/           run-all.sh health and policy check, and its last output
 screenshots/     pfSense, LibreNMS and Packet Tracer evidence
-docs/            assignment index and build log
+docs/            assignment index, build log, and the complete guide PDF (PEL-Lab-Complete-Guide.pdf)
 ```
 
 ## How to run the checks
