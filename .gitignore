@@ -1,0 +1,15 @@
+# local lab secrets and generated credentials - never commit
+.lab-local/
+*.env
+*secret*
+!**/*secret*.example
+# images and VM disks
+*.iso
+*.iso.gz
+*.vdi
+*.vmdk
+*.ova
+*.bin
+# raw captures that may hold credentials are reviewed before adding
+*.pcapng.tmp
+__pycache__/

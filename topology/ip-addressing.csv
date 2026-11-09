@@ -1,0 +1,8 @@
+zone,vlan,network,gateway,host,ip,role
+Management,10,192.168.10.0/24,192.168.10.1,CORE-SW1,192.168.10.2,Network device management (SVI)
+Servers,20,192.168.20.0/24,192.168.20.1,monitor01,192.168.20.10,LibreNMS / Suricata / Wazuh manager
+Servers,20,192.168.20.0/24,192.168.20.1,srv01,192.168.20.20,Ubuntu target server (SSH / web / Wazuh agent)
+Users,30,192.168.30.0/24,192.168.30.1,client01,192.168.30.100-199 (DHCP),Employee client
+Security,40,192.168.40.0/24,192.168.40.1,kali01,192.168.40.10,Authorized security testing
+DMZ,50,192.168.50.0/24,192.168.50.1,dmz-web01,192.168.50.10,Public-facing test web server
+WAN,-,10.0.2.0/24 (VirtualBox NAT),10.0.2.2,fw01,10.0.2.15,pfSense WAN / outbound NAT
