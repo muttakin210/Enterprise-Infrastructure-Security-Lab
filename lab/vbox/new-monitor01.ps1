@@ -4,6 +4,7 @@
 # by linux/monitor01-setup.sh.
 #   NIC1  NAT  - management from the host only (127.0.0.1:2230 ssh, :8030 LibreNMS), no default route
 #   NIC2  intnet pel-servers, promiscuous allow-all so Suricata sees all traffic in the Servers zone
+#   NIC3  intnet pel-dmz, promiscuous, no IP: IDS sensor for the DMZ
 $ErrorActionPreference = 'Stop'
 $vb = 'C:\Program Files\Oracle\VirtualBox\VBoxManage.exe'
 $src = 'ENL-Ubuntu-Server'
@@ -12,7 +13,7 @@ if (-not ((& $vb snapshot $src list --machinereadable 2>$null) -match "SnapshotN
   & $vb snapshot $src take $snap --description 'Base for the PEL monitor01 linked clone'
 }
 & $vb clonevm $src --snapshot $snap --options link --name monitor01 --basefolder 'E:\VMs\PEL' --register
-& $vb modifyvm monitor01 --memory 2560 --cpus 2 --nic1 nat --nic2 intnet --intnet2 pel-servers --nic-promisc2 allow-all
+& $vb modifyvm monitor01 --memory 2048 --cpus 2 --nic1 nat --nic2 intnet --intnet2 pel-servers --nic-promisc2 allow-all --nic3 intnet --intnet3 pel-dmz --nic-promisc3 allow-all
 foreach ($r in (& $vb showvminfo monitor01 --machinereadable | Select-String '^Forwarding\(\d+\)="([^,]+),')) {
   & $vb modifyvm monitor01 --natpf1 delete $r.Matches[0].Groups[1].Value
 }
