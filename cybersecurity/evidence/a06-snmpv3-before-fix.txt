@@ -1,0 +1,32 @@
+### target 192.168.20.1
+v3 authPriv SHA/AES (correct)  : STRING: fw01
+v3 authPriv wrong auth password: snmpget: Authentication failure (incorrect password, community or key)
+v3 authNoPriv (no encryption)  : Error in packet
+v3 noAuthNoPriv                : Error in packet
+v3 unknown user                : snmpget: Unknown user name
+v2c community 'public'         : Timeout: No Response from 192.168.20.1.
+v1  community 'private'        : Timeout: No Response from 192.168.20.1.
+### target 192.168.20.20
+v3 authPriv SHA/AES (correct)  : STRING: srv01
+v3 authPriv wrong auth password: snmpget: Authentication failure (incorrect password, community or key)
+v3 authNoPriv (no encryption)  : STRING: srv01
+v3 noAuthNoPriv                : Error in packet
+v3 unknown user                : snmpget: Unknown user name
+v2c community 'public'         : Timeout: No Response from 192.168.20.20.
+v1  community 'private'        : Timeout: No Response from 192.168.20.20.
+### target 192.168.50.10
+v3 authPriv SHA/AES (correct)  : STRING: dmz-web01
+v3 authPriv wrong auth password: snmpget: Authentication failure (incorrect password, community or key)
+v3 authNoPriv (no encryption)  : STRING: dmz-web01
+v3 noAuthNoPriv                : Error in packet
+v3 unknown user                : snmpget: Unknown user name
+v2c community 'public'         : Timeout: No Response from 192.168.50.10.
+v1  community 'private'        : Timeout: No Response from 192.168.50.10.
+### wire view of one v3 request/response (tcpdump): the PDU is encrypted, only the USM header is clear
+22:33:17.425035 IP (tos 0x0, ttl 64, id 51734, offset 0, flags [DF], proto UDP (17), length 92)
+    192.168.20.10.44008 > 192.168.20.20.161: [bad udp cksum 0xa9c8 -> 0x275c!]  { SNMPv3 { F=r } { USM B=0 T=0 U="" } { ScopedPDU E= C="" { GetRequest(14) R=769682969  } } } 
+22:33:17.427494 IP (tos 0x0, ttl 64, id 5813, offset 0, flags [DF], proto UDP (17), length 145)
+    192.168.20.20.161 > 192.168.20.10.44008: [udp sum ok]  { SNMPv3 { F= } { USM B=3 T=3818 U="" } { ScopedPDU E=_80_00_1f_88_80_81_d6_42_33_d3_e2_f1_6a_00_00_00_00 C="" { Report(32) R=769682969  .1.3.6.1.6.3.15.1.1.4.0=210 } } } 
+printable strings in the captured packets (sysName 'srv01' must NOT appear):
+}d'0s
+RESULT: no plaintext sysName on the wire

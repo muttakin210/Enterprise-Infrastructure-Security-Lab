@@ -48,6 +48,9 @@ configure_services() {
   if ! grep -q monitoruser /var/lib/snmp/snmpd.conf 2>/dev/null; then
     net-snmp-create-v3-user -ro -A "$SNMP_AUTH" -X "$SNMP_PRIV" -a SHA -x AES monitoruser >/dev/null
   fi
+  # net-snmp-create-v3-user also writes a bare "rouser monitoruser" (= authNoPriv allowed) into
+  # /usr/share/snmp/snmpd.conf, which would undo "priv" below. Found in assignment 6; removed here.
+  sed -i '/^rouser monitoruser$/d' /usr/share/snmp/snmpd.conf 2>/dev/null || true
   cat > /etc/snmp/snmpd.conf <<EOF
 # SNMPv3 only (no v1/v2c communities). UFW limits UDP 161 to monitor01 (192.168.20.10).
 agentaddress udp:161
