@@ -11,6 +11,10 @@ here=$(cd "$(dirname "$0")" && pwd)
 # ---- 1. identity and services left over from the ENL lab ----
 hostnamectl set-hostname monitor01
 sed -i 's/^127.0.1.1.*/127.0.1.1 monitor01.corp.lab monitor01/' /etc/hosts
+# rsyslog names a sender by reverse lookup; without this systemd-resolved calls the gateway "_gateway"
+grep -q '^192.168.20.1 ' /etc/hosts || echo '192.168.20.1 fw01.corp.lab fw01' >> /etc/hosts
+# device logs from the ENL lab this VM was cloned from
+rm -f /var/log/remote/HQ-R1.log /var/log/remote/BR-R2.log /var/log/remote/_gateway.log
 for s in zabbix-server zabbix-agent2 grafana-server netbox netbox-rq redis-server postgresql \
          kea-dhcp4-server named isc-dhcp-relay frr; do
   systemctl disable --now "$s" >/dev/null 2>&1 || true

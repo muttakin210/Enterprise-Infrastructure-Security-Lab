@@ -1,0 +1,19 @@
+## BIND query log on srv01 (querylog yes) - queries from kali01 192.168.40.10
+total queries from kali01: 163
+### long random labels (tunnelling pattern):
+192.168.40.10#44111 (358ea82c7dad8857c0204ea3f4f52f5ad9b08c4a21f9fc6aa0.exfil-test.corp.lab): query: 358ea82c7dad8857c0204ea3f4f52f5ad9b08c4a21f9fc6aa0.exfil-test.corp.lab IN A +E(0)K (192.168.20.20)
+192.168.40.10#41417 (8b65d2f41b5d1de2f01b60b9617f985300696e7d4d5da486a7.exfil-test.corp.lab): query: 8b65d2f41b5d1de2f01b60b9617f985300696e7d4d5da486a7.exfil-test.corp.lab IN A +E(0)K (192.168.20.20)
+192.168.40.10#50932 (e83450247b60bd4a0351608d96c7e415ed87df325cc67bb115.exfil-test.corp.lab): query: e83450247b60bd4a0351608d96c7e415ed87df325cc67bb115.exfil-test.corp.lab IN A +E(0)K (192.168.20.20)
+192.168.40.10#55807 (cb88470ae2a740ecbd9f823ec2dff81f7f03db993f9ea333d6.exfil-test.corp.lab): query: cb88470ae2a740ecbd9f823ec2dff81f7f03db993f9ea333d6.exfil-test.corp.lab IN A +E(0)K (192.168.20.20)
+192.168.40.10#39885 (0fbfac8d33a43bd5719cfae51c8fa15be980280aa99263199b.exfil-test.corp.lab): query: 0fbfac8d33a43bd5719cfae51c8fa15be980280aa99263199b.exfil-test.corp.lab IN A +E(0)K (192.168.20.20)
+### query rate per second (burst):
+     35 2026-11-09T16:45:17
+     27 2026-11-09T16:45:16
+     23 2026-11-09T16:45:14
+### top queried names:
+    150 corp.lab
+      5 exfil-test.corp.lab
+      4 bind
+      2 server
+### responses: NXDOMAIN check for the random names
+status: NXDOMAIN

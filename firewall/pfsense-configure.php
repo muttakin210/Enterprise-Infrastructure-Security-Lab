@@ -144,7 +144,7 @@ $config['syslog']['sourceip'] = 'opt1';
 $config['syslog']['ipproto'] = 'ipv4';
 $config['syslog']['enable'] = '';
 $config['syslog']['logall'] = '';
-$config['syslog']['filter'] = '';
+unset($config['syslog']['filter']);   /* logall already includes the filter log; both = every line sent twice */
 $config['syslog']['logdefaultblock'] = '';
 $config['syslog']['logdefaultpass'] = '';
 

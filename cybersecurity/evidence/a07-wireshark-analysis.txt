@@ -1,0 +1,31 @@
+## capture file: a07-lab-traffic.pcap, 43 packets
+### protocol hierarchy
+Protocol Hierarchy Statistics
+Filter: 
+
+frame                                    frames:43 bytes:3803
+  eth                                    frames:43 bytes:3803
+    ip                                   frames:43 bytes:3803
+      udp                                frames:9 bytes:885
+        dns                              frames:9 bytes:885
+      tcp                                frames:30 bytes:2526
+        http                             frames:2 bytes:502
+          data-text-lines                frames:1 bytes:359
+      icmp                               frames:4 bytes:392
+### IPv4 conversations
+192.168.40.10        <-> 192.168.20.20              0 0 bytes        27 2,217 bytes      27 2,217 bytes     0.000000000       187.3992
+192.168.40.10        <-> 192.168.50.10              4 565 bytes       6 481 bytes      10 1,046 bytes   179.244501000         0.0281
+192.168.40.10        <-> 192.168.40.1               2 196 bytes       2 196 bytes       4 392 bytes   188.379523000         1.0066
+192.168.40.10        <-> 192.168.20.10              0 0 bytes         2 148 bytes       2 148 bytes   182.317586000         1.0185
+### DNS queries and answers
+1	192.168.40.10	srv01.corp.lab		
+2	192.168.40.10	srv01.corp.lab		
+3	192.168.40.10	srv01.corp.lab		
+4	192.168.40.10	www.corp.lab		
+5	192.168.40.10	www.corp.lab		
+6	192.168.40.10	www.corp.lab		
+7	192.168.40.10	nonexistent.corp.lab		
+8	192.168.40.10	nonexistent.corp.lab		
+9	192.168.40.10	nonexistent.corp.lab		
+### HTTP requests (clear text: method, host, user agent, server header)
+192.168.50.10	GET	/	curl/8.17.0
