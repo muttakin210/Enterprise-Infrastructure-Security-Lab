@@ -34,12 +34,19 @@ network:
       link-local: []
 EOF
 chmod 600 /etc/netplan/50-lab.yaml
+# the ENL clone pointed systemd-resolved at its own BIND (127.0.0.1), which is now disabled
+sed -i -e 's/^DNS=.*/#DNS=/' -e 's/^Domains=.*/#Domains=/' /etc/systemd/resolved.conf
+systemctl restart systemd-resolved
+netplan apply 2>/dev/null
+ip link delete br-vlan50 2>/dev/null || true
+for i in $(seq 1 15); do getent hosts api.launchpad.net >/dev/null && break; sleep 2; done
 
 # ---- 3. Suricata IDS ----
 if ! command -v suricata >/dev/null; then
   add-apt-repository -y ppa:oisf/suricata-stable >/dev/null
   apt-get update -q && apt-get install -y -q suricata jq
 fi
+mkdir -p /etc/suricata/rules
 install -m 644 "$here/../cybersecurity/suricata/local.rules" /etc/suricata/rules/local.rules
 python3 - <<'PY'
 import re

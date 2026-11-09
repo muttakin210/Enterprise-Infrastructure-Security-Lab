@@ -21,6 +21,8 @@ export DEBIAN_FRONTEND=noninteractive
 packages() {
   hostnamectl set-hostname "$role"
   sed -i "s/^127.0.1.1.*/127.0.1.1 $role.corp.lab $role/" /etc/hosts
+  # the base image was built with cloud-init, which would reset the hostname to the base name on boot
+  echo 'preserve_hostname: true' > /etc/cloud/cloud.cfg.d/99-pel-hostname.cfg
   apt-get update -q
   common="openssh-server snmpd snmp curl dnsutils tcpdump ufw auditd jq"
   case $role in
@@ -96,12 +98,14 @@ EOF
 }
 
 network() {
+  # the DMZ may not reach internal zones (policy), so dmz-web01 resolves through a public resolver
+  dns=192.168.20.20; [ "$role" = dmz-web01 ] && dns=1.1.1.1
   if [ "$dhcp" = yes ]; then
     addr="      dhcp4: true"
   else
     addr="      addresses: [$ip/24]
       routes: [{to: default, via: $gw}]
-      nameservers: {addresses: [192.168.20.20], search: [corp.lab]}"
+      nameservers: {addresses: [$dns], search: [corp.lab]}"
   fi
   rm -f /etc/netplan/*.yaml
   cat > /etc/netplan/50-lab.yaml <<EOF
