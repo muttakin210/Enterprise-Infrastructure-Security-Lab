@@ -6,7 +6,7 @@ param(
   [string]$Iso = "$env:USERPROFILE\Downloads\ubuntu-22.04.5-live-server-amd64.iso",
   [string]$Name = 'pel-base',
   [string]$Folder = 'E:\VMs\PEL',
-  [int]$MemoryMB = 1536
+  [int]$MemoryMB = 2048   # the live installer needs ~2 GB; clones are trimmed afterwards
 )
 $ErrorActionPreference = 'Stop'
 $vb = 'C:\Program Files\Oracle\VirtualBox\VBoxManage.exe'
@@ -14,7 +14,7 @@ $root = Resolve-Path "$PSScriptRoot\..\.."
 $sec = @{}; Get-Content "$root\.lab-local\secrets.env" | ForEach-Object { $k, $v = $_ -split '=', 2; $sec[$k] = $v }
 
 & $vb createvm --name $Name --ostype Ubuntu22_LTS_64 --basefolder $Folder --register
-& $vb modifyvm $Name --memory $MemoryMB --cpus 2 --nic1 nat --audio-enabled off --usb off --graphicscontroller vmsvga --vram 16
+& $vb modifyvm $Name --memory $MemoryMB --cpus 2 --nic1 nat --audio-enabled off --usb off --graphicscontroller vboxsvga --vram 16
 & $vb modifyvm $Name --natpf1 "ssh,tcp,127.0.0.1,2231,,22"
 & $vb createmedium disk --filename "$Folder\$Name\$Name.vdi" --size 20480 --format VDI --variant Standard
 & $vb storagectl $Name --name SATA --add sata --controller IntelAhci --portcount 2

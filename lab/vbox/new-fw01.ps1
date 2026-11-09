@@ -14,6 +14,8 @@ $vb = 'C:\Program Files\Oracle\VirtualBox\VBoxManage.exe'
     --nic4 intnet --intnet4 pel-users --nic5 intnet --intnet5 pel-security --nic6 intnet --intnet6 pel-dmz `
     --nictype1 82540EM --nictype2 82540EM --nictype3 82540EM --nictype4 82540EM --nictype5 82540EM --nictype6 82540EM
 & $vb modifyvm fw01 --natpf1 "ssh,tcp,127.0.0.1,2250,,22" --natpf1 "https,tcp,127.0.0.1,8443,,443"
+# VirtualBox 7 blocks NAT guests from the host loopback by default; the bootstrap fetches its config from the host
+& $vb modifyvm fw01 --nat-localhostreachable1 on
 & $vb createmedium disk --filename "$Folder\fw01\fw01.vdi" --size 8192 --format VDI
 & $vb storagectl fw01 --name SATA --add sata --controller IntelAhci --portcount 2
 & $vb storageattach fw01 --storagectl SATA --port 0 --device 0 --type hdd --medium "$Folder\fw01\fw01.vdi"
