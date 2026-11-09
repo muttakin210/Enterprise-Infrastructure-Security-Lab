@@ -1,0 +1,13 @@
+$TTL 3600
+@   IN SOA srv01.corp.lab. hostmaster.corp.lab. (2026110901 3600 900 604800 300)
+    IN NS  srv01.corp.lab.
+fw01        IN A 192.168.10.1
+core-sw1    IN A 192.168.10.2
+monitor01   IN A 192.168.20.10
+srv01       IN A 192.168.20.20
+kali01      IN A 192.168.40.10
+dmz-web01   IN A 192.168.50.10
+intranet    IN CNAME srv01
+www         IN CNAME dmz-web01
+librenms    IN CNAME monitor01
+wazuh       IN CNAME monitor01

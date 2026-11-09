@@ -1,0 +1,9 @@
+$TTL 3600
+@   IN SOA srv01.corp.lab. hostmaster.corp.lab. (2026110901 3600 900 604800 300)
+    IN NS  srv01.corp.lab.
+1.10   IN PTR fw01.corp.lab.
+2.10   IN PTR core-sw1.corp.lab.
+10.20  IN PTR monitor01.corp.lab.
+20.20  IN PTR srv01.corp.lab.
+10.40  IN PTR kali01.corp.lab.
+10.50  IN PTR dmz-web01.corp.lab.

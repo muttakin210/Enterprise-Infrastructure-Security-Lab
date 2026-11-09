@@ -1,0 +1,2 @@
+zone "corp.lab" { type master; file "/etc/bind/zones/db.corp.lab"; };
+zone "168.192.in-addr.arpa" { type master; file "/etc/bind/zones/db.192.168"; };
