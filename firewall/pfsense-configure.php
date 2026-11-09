@@ -106,6 +106,7 @@ $rules = [
     r('opt1', 'pass', 'monitor01 polls the DMZ server over SNMPv3', 'MONITOR01', 'DMZ_WEB01', 'udp', '161'),
     r('opt1', 'pass', 'monitor01 ICMP reachability checks', 'MONITOR01', $any, 'icmp'),
     r('opt1', 'pass', 'monitor01 SSH to network devices', 'MONITOR01', $net('lan'), 'tcp', '22'),
+    r('opt1', 'pass', 'monitor01 polls fw01 over SNMPv3', 'MONITOR01', ['network' => 'opt1ip'], 'udp', '161'),
     r('opt1', 'block', 'Servers may not start sessions to other zones', $net('opt1'), 'PRIVATE_NETS', 'any', null, true),
     r('opt1', 'pass', 'Servers to the internet (updates)', $net('opt1'), $any),
 
@@ -132,6 +133,10 @@ $rules = [
 ];
 $config['filter']['rule'] = $rules;
 $config['nat']['outbound']['mode'] = 'automatic';
+
+/* ---- SNMPv3 agent (net-snmp, see pfsense-snmpv3.sh) started at boot; bsnmpd (v1/v2c only) stays off ---- */
+$config['system']['shellcmd'] = ['/usr/local/sbin/snmpd -C -c /usr/local/etc/snmp/snmpd.conf -p /var/run/net-snmpd.pid'];
+if (isset($config['snmpd']) && is_array($config['snmpd'])) unset($config['snmpd']['enable']);
 
 /* ---- logging: firewall and system logs to monitor01 (Wazuh/rsyslog) ---- */
 $config['syslog']['remoteserver'] = '192.168.20.10:514';
