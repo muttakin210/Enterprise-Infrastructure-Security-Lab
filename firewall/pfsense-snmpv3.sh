@@ -15,12 +15,12 @@ sysName fw01
 sysLocation PEL lab - firewall
 sysContact labadmin@corp.lab
 EOF
+# The v3 user is defined in this root-only config so it is recreated on every start. (A createUser line in
+# the persistent store /var/net-snmp is converted once and was lost across a restart during the build.)
+echo "createUser monitoruser SHA \"$SNMP_AUTH\" AES \"$SNMP_PRIV\"" >> /usr/local/etc/snmp/snmpd.conf
+chmod 600 /usr/local/etc/snmp/snmpd.conf
 pkill -x snmpd 2>/dev/null || true
 sleep 1
-# createUser in the persistent file is converted to a localized key on first start
-# (after the first start the user is stored as a usmUser line with the name in hex: 6d6f6e69746f7275736572)
-grep -q -e monitoruser -e 6d6f6e69746f7275736572 /var/net-snmp/snmpd.conf 2>/dev/null || \
-  echo "createUser monitoruser SHA \"$SNMP_AUTH\" AES \"$SNMP_PRIV\"" >> /var/net-snmp/snmpd.conf
 /usr/local/sbin/snmpd -C -c /usr/local/etc/snmp/snmpd.conf -p /var/run/net-snmpd.pid
 sleep 1
 pgrep -x snmpd >/dev/null && echo "net-snmp v3 agent running on 192.168.20.1:161"

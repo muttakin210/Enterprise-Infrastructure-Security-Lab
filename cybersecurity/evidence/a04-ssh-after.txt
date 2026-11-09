@@ -1,0 +1,7 @@
+sshd hardened; effective settings:
+logingracetime 30
+maxauthtries 3
+permitrootlogin no
+passwordauthentication no
+loglevel VERBOSE
+allowusers labadmin

@@ -60,7 +60,7 @@ if "local.rules" not in s:
 open(p, "w").write(s)
 PY
 suricata-update -q --no-test >/dev/null 2>&1 || suricata-update >/dev/null
-suricata -T -c /etc/suricata/suricata.yaml -q
+suricata -T -c /etc/suricata/suricata.yaml >/dev/null
 systemctl enable suricata >/dev/null; systemctl restart suricata
 
 # ---- 4. Wazuh manager (no indexer/dashboard on this 16 GB host: alerts go to alerts.json) ----
@@ -72,6 +72,12 @@ if ! dpkg -s wazuh-manager >/dev/null 2>&1; then
   sed -i 's/^deb /#deb /' /etc/apt/sources.list.d/wazuh.list
 fi
 python3 "$here/wazuh-manager-config.py" /var/ossec/etc/ossec.conf
+# on a 2 GB VM the manager needs more than systemd's default start timeout; the CVE feed
+# (vulnerability detection) is the biggest memory user and is not part of this lab, so it is turned off
+mkdir -p /etc/systemd/system/wazuh-manager.service.d
+printf '[Service]\nTimeoutStartSec=600\n' > /etc/systemd/system/wazuh-manager.service.d/timeout.conf
+systemctl daemon-reload
+sed -i '/<vulnerability-detection>/,\|</vulnerability-detection>| s#<enabled>yes</enabled>#<enabled>no</enabled>#' /var/ossec/etc/ossec.conf
 systemctl enable wazuh-manager >/dev/null; systemctl restart wazuh-manager
 
 # ---- 5. host firewall ----
