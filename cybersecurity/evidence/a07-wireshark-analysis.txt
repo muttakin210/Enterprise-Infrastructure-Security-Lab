@@ -1,31 +1,42 @@
-## capture file: a07-lab-traffic.pcap, 43 packets
+## capture file: a07-lab-traffic.pcap, 55 packets
 ### protocol hierarchy
 Protocol Hierarchy Statistics
 Filter: 
 
-frame                                    frames:43 bytes:3803
-  eth                                    frames:43 bytes:3803
-    ip                                   frames:43 bytes:3803
-      udp                                frames:9 bytes:885
-        dns                              frames:9 bytes:885
-      tcp                                frames:30 bytes:2526
-        http                             frames:2 bytes:502
-          data-text-lines                frames:1 bytes:359
+frame                                    frames:55 bytes:7988
+  eth                                    frames:55 bytes:7988
+    ip                                   frames:55 bytes:7988
+      udp                                frames:6 bytes:747
+        dns                              frames:6 bytes:747
+      tcp                                frames:45 bytes:6849
+        http                             frames:4 bytes:1010
+          data-text-lines                frames:2 bytes:724
+        ssh                              frames:11 bytes:3793
       icmp                               frames:4 bytes:392
 ### IPv4 conversations
-192.168.40.10        <-> 192.168.20.20              0 0 bytes        27 2,217 bytes      27 2,217 bytes     0.000000000       187.3992
-192.168.40.10        <-> 192.168.50.10              4 565 bytes       6 481 bytes      10 1,046 bytes   179.244501000         0.0281
-192.168.40.10        <-> 192.168.40.1               2 196 bytes       2 196 bytes       4 392 bytes   188.379523000         1.0066
-192.168.40.10        <-> 192.168.20.10              0 0 bytes         2 148 bytes       2 148 bytes   182.317586000         1.0185
+192.168.40.10        <-> 192.168.20.20             18 3,041 bytes      21 3,361 bytes      39 6,402 bytes     0.000000000         2.5100
+192.168.40.10        <-> 192.168.50.10              4 565 bytes       6 481 bytes      10 1,046 bytes     0.208936000         0.0332
+192.168.40.10        <-> 192.168.40.1               2 196 bytes       2 196 bytes       4 392 bytes     2.524188000         1.0043
+192.168.40.10        <-> 192.168.20.10              0 0 bytes         2 148 bytes       2 148 bytes     0.290481000         1.0274
 ### DNS queries and answers
 1	192.168.40.10	srv01.corp.lab		
-2	192.168.40.10	srv01.corp.lab		
-3	192.168.40.10	srv01.corp.lab		
-4	192.168.40.10	www.corp.lab		
-5	192.168.40.10	www.corp.lab		
-6	192.168.40.10	www.corp.lab		
-7	192.168.40.10	nonexistent.corp.lab		
-8	192.168.40.10	nonexistent.corp.lab		
-9	192.168.40.10	nonexistent.corp.lab		
+2	192.168.20.20	srv01.corp.lab	0	192.168.20.20
+3	192.168.40.10	www.corp.lab		
+4	192.168.20.20	www.corp.lab	0	192.168.50.10
+5	192.168.40.10	nonexistent.corp.lab		
+6	192.168.20.20	nonexistent.corp.lab	3	
 ### HTTP requests (clear text: method, host, user agent, server header)
+192.168.20.20	GET	/	curl/8.17.0
 192.168.50.10	GET	/	curl/8.17.0
+192.168.20.20	200	nginx
+192.168.50.10	200	nginx
+### TCP resets (closed ports) and unanswered SYNs (filtered by the firewall)
+192.168.20.20	443	192.168.40.10
+      2 192.168.20.10	8000
+      1 192.168.20.20	22
+      1 192.168.20.20	443
+      1 192.168.20.20	80
+      1 192.168.50.10	80
+### SSH: only the version banner is readable, everything after key exchange is encrypted
+192.168.20.20	SSH-2.0-OpenSSH_8.9p1 Ubuntu-3ubuntu0.18
+192.168.40.10	SSH-2.0-OpenSSH_10.2p1 Debian-2
