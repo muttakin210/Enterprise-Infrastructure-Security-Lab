@@ -48,17 +48,7 @@ if ! command -v suricata >/dev/null; then
 fi
 mkdir -p /etc/suricata/rules
 install -m 644 "$here/../cybersecurity/suricata/local.rules" /etc/suricata/rules/local.rules
-python3 - <<'PY'
-import re
-p = "/etc/suricata/suricata.yaml"
-s = open(p).read()
-s = re.sub(r'HOME_NET: "\[[^"]*\]"', 'HOME_NET: "[192.168.0.0/16]"', s, count=1)
-# af-packet on both sensor interfaces
-s = re.sub(r'af-packet:\n  - interface: \S+', 'af-packet:\n  - interface: enp0s8\n    cluster-id: 98\n    cluster-type: cluster_flow\n    defrag: yes\n  - interface: enp0s9', s, count=1)
-if "local.rules" not in s:
-    s = s.replace("rule-files:\n  - suricata.rules", "rule-files:\n  - suricata.rules\n  - /etc/suricata/rules/local.rules")
-open(p, "w").write(s)
-PY
+python3 "$here/suricata-config.py" /etc/suricata/suricata.yaml
 suricata-update -q --no-test >/dev/null 2>&1 || suricata-update >/dev/null
 suricata -T -c /etc/suricata/suricata.yaml >/dev/null
 systemctl enable suricata >/dev/null; systemctl restart suricata
