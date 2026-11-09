@@ -1,0 +1,21 @@
+# Local lab rules (sid 9000000+). ET Open covers the general signatures; these make the lab scenarios explicit.
+
+# Scenario 1 - port discovery: many SYNs from one host to many ports in a short time
+alert tcp $HOME_NET any -> $HOME_NET any (msg:"PEL LAB Possible TCP port scan (SYN sweep)"; flags:S,12; threshold:type threshold, track by_src, count 40, seconds 10; classtype:attempted-recon; sid:9000001; rev:1;)
+
+# Nmap service/OS probes
+alert tcp $HOME_NET any -> $HOME_NET any (msg:"PEL LAB Nmap NULL scan"; flags:0; classtype:attempted-recon; sid:9000002; rev:1;)
+alert tcp $HOME_NET any -> $HOME_NET any (msg:"PEL LAB Nmap XMAS scan"; flags:FPU,12; classtype:attempted-recon; sid:9000003; rev:1;)
+
+# Scenario 2 - suspicious DNS: long random-looking labels (tunnelling/DGA style) and query bursts
+alert dns $HOME_NET any -> any 53 (msg:"PEL LAB DNS query with very long label (possible tunnelling)"; dns.query; pcre:"/[a-z0-9]{40,}\./i"; classtype:policy-violation; sid:9000010; rev:1;)
+alert dns $HOME_NET any -> any 53 (msg:"PEL LAB DNS query burst from one host"; threshold:type threshold, track by_src, count 100, seconds 10; classtype:policy-violation; sid:9000011; rev:1;)
+
+# Scenario 3 - SSH brute force: many new SSH connections from one host
+alert tcp $HOME_NET any -> $HOME_NET 22 (msg:"PEL LAB SSH brute force (many new connections)"; flow:to_server; flags:S,12; threshold:type threshold, track by_src, count 10, seconds 60; classtype:attempted-admin; sid:9000020; rev:1;)
+
+# Scenario 4 - segmentation: any traffic from the DMZ towards Management is a policy violation
+alert ip 192.168.50.0/24 any -> 192.168.10.0/24 any (msg:"PEL LAB DMZ host contacting Management zone"; classtype:policy-violation; sid:9000030; rev:1;)
+
+# HTTP: directory brute force / scanner user-agents against lab web servers
+alert http $HOME_NET any -> $HOME_NET any (msg:"PEL LAB Web scanner user-agent (Nikto/Nmap NSE/gobuster)"; flow:to_server; http.user_agent; pcre:"/(nikto|nmap scripting engine|gobuster|dirbuster)/i"; classtype:web-application-attack; sid:9000040; rev:1;)
