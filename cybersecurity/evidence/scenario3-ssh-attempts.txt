@@ -1,0 +1,16 @@
+[2026-11-09T16:46:49Z] SSH login attempts with invalid user names against srv01 (no key for them)
+  admin: admin@192.168.20.20: Permission denied (publickey).
+  root: root@192.168.20.20: Permission denied (publickey).
+  oracle: oracle@192.168.20.20: Permission denied (publickey).
+  test: test@192.168.20.20: Permission denied (publickey).
+  guest: guest@192.168.20.20: Permission denied (publickey).
+  ubuntu: ubuntu@192.168.20.20: Permission denied (publickey).
+  postgres: postgres@192.168.20.20: Permission denied (publickey).
+  ftp: ftp@192.168.20.20: Permission denied (publickey).
+  deploy: deploy@192.168.20.20: Permission denied (publickey).
+  git: git@192.168.20.20: Permission denied (publickey).
+  www: www@192.168.20.20: Permission denied (publickey).
+  backup: backup@192.168.20.20: Permission denied (publickey).
+[2026-11-09T16:46:57Z] reachability after the attempts:
+  srv01:22 BLOCKED (Wazuh active response firewall-drop)
+  dmz-web01:80 reachable (block is only on the host that was attacked)

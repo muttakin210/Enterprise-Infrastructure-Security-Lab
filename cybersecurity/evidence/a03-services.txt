@@ -1,0 +1,82 @@
+## A3 service and version enumeration 2026-11-09T16:43:42Z
+# Nmap 7.95 scan initiated Mon Nov  9 11:43:43 2026 as: /usr/lib/nmap/nmap -sV -sC -n -p 22,53,80,443 -oN - 192.168.20.20 192.168.50.10
+Nmap scan report for 192.168.20.20
+Host is up (0.015s latency).
+
+PORT    STATE  SERVICE VERSION
+22/tcp  open   ssh     OpenSSH 8.9p1 Ubuntu 3ubuntu0.18 (Ubuntu Linux; protocol 2.0)
+53/tcp  open   domain  (unknown banner: not disclosed)
+| dns-nsid: 
+|_  bind.version: not disclosed
+| fingerprint-strings: 
+|   DNSVersionBindReqTCP: 
+|     version
+|     bind
+|_    disclosed
+80/tcp  open   http    nginx
+|_http-title: Site doesn't have a title (text/html).
+443/tcp closed https
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port53-TCP:V=7.95%I=7%D=11/9%Time=6AF1F84C%P=x86_64-pc-linux-gnu%r(DNSV
+SF:ersionBindReqTCP,3A,"\x008\0\x06\x85\0\0\x01\0\x01\0\0\0\0\x07version\x
+SF:04bind\0\0\x10\0\x03\xc0\x0c\0\x10\0\x03\0\0\0\0\0\x0e\rnot\x20disclose
+SF:d");
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Nmap scan report for 192.168.50.10
+Host is up (0.015s latency).
+
+PORT    STATE    SERVICE VERSION
+22/tcp  filtered ssh
+53/tcp  filtered domain
+80/tcp  open     http    nginx
+|_http-title: Site doesn't have a title (text/html).
+443/tcp closed   https
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Mon Nov  9 11:44:10 2026 -- 2 IP addresses (2 hosts up) scanned in 27.31 seconds
+## A3b SSH authentication methods (after hardening: publickey only)
+# Nmap 7.95 scan initiated Mon Nov  9 11:44:10 2026 as: /usr/lib/nmap/nmap -n -p22 --script ssh-auth-methods,ssh2-enum-algos -oN - 192.168.20.20
+Nmap scan report for 192.168.20.20
+Host is up (0.0034s latency).
+
+PORT   STATE SERVICE
+22/tcp open  ssh
+| ssh-auth-methods: 
+|   Supported authentication methods: 
+|     publickey
+|_  Banner: Authorised use only. Activity on this system is logged and monitored (corp.lab).
+| ssh2-enum-algos: 
+|   kex_algorithms: (3)
+|       curve25519-sha256
+|       curve25519-sha256@libssh.org
+|       kex-strict-s-v00@openssh.com
+|   server_host_key_algorithms: (4)
+|       rsa-sha2-512
+|       rsa-sha2-256
+|       ecdsa-sha2-nistp256
+|       ssh-ed25519
+|   encryption_algorithms: (3)
+|       chacha20-poly1305@openssh.com
+|       aes256-gcm@openssh.com
+|       aes128-gcm@openssh.com
+|   mac_algorithms: (2)
+|       hmac-sha2-512-etm@openssh.com
+|       hmac-sha2-256-etm@openssh.com
+|   compression_algorithms: (2)
+|       none
+|_      zlib@openssh.com
+
+# Nmap done at Mon Nov  9 11:44:10 2026 -- 1 IP address (1 host up) scanned in 0.51 seconds
+## A3c DNS: version hidden, recursion limited to lab nets
+# Nmap 7.95 scan initiated Mon Nov  9 11:44:10 2026 as: /usr/lib/nmap/nmap -sU -n -p53 --script dns-nsid,dns-recursion -oN - 192.168.20.20
+Nmap scan report for 192.168.20.20
+Host is up (0.0067s latency).
+
+PORT   STATE SERVICE
+53/udp open  domain
+| dns-nsid: 
+|_  bind.version: not disclosed
+|_dns-recursion: Recursion appears to be enabled
+
+# Nmap done at Mon Nov  9 11:44:11 2026 -- 1 IP address (1 host up) scanned in 0.96 seconds

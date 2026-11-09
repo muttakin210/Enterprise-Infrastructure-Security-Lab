@@ -1,0 +1,15 @@
+   1781 enp0s8	192.168.40.10	192.168.20.20	9000001	PEL LAB Possible TCP port scan (SYN sweep)
+   1660 enp0s9	192.168.40.10	192.168.50.10	9000001	PEL LAB Possible TCP port scan (SYN sweep)
+     32 enp0s9	192.168.40.10	192.168.50.10	9000040	PEL LAB Web scanner user-agent (Nikto/Nmap NSE/gobuster)
+     32 enp0s8	192.168.40.10	192.168.20.20	9000040	PEL LAB Web scanner user-agent (Nikto/Nmap NSE/gobuster)
+     30 enp0s9	192.168.40.10	192.168.50.10	2024364	ET SCAN Possible Nmap User-Agent Observed
+     30 enp0s8	192.168.40.10	192.168.20.20	2024364	ET SCAN Possible Nmap User-Agent Observed
+      5 enp0s8	192.168.40.10	192.168.20.20	9000010	PEL LAB DNS query with very long label (possible tunnelling)
+      2 enp0s9	192.168.50.10	192.168.10.2	9000030	PEL LAB DMZ host contacting Management zone
+      2 enp0s8	192.168.40.10	192.168.20.20	9000020	PEL LAB SSH brute force (many new connections)
+      1 enp0s9	192.168.50.10	192.168.10.50	9000030	PEL LAB DMZ host contacting Management zone
+      1 enp0s9	192.168.50.10	192.168.10.1	9000030	PEL LAB DMZ host contacting Management zone
+      1 enp0s9	192.168.40.10	192.168.50.10	2260002	SURICATA Applayer Detect protocol only one direction
+      1 enp0s9	192.168.40.10	192.168.50.10	2019102	ET DOS Possible SSDP Amplification Scan in Progress
+      1 enp0s8	192.168.40.10	192.168.20.20	9000011	PEL LAB DNS query burst from one host
+      1 enp0s8	192.168.40.10	192.168.20.20	2260002	SURICATA Applayer Detect protocol only one direction

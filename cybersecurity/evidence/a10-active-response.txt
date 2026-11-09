@@ -1,0 +1,5 @@
+2026/11/09 16:46:54 active-response/bin/firewall-drop: {"version":1,"origin":{"name":"node01","module":"wazuh-execd"},"command":"continue","parameters":{"extra_args":[],"alert":{"timestamp":"2026-11-09T22:46:54.567+0600","rule":{"level":10,"description":"sshd: brute force trying to get access to the
+
+2026/11/09 16:46:54 active-response/bin/firewall-drop: Ended
+-A INPUT -s 192.168.40.10/32 -j DROP
+-A FORWARD -s 192.168.40.10/32 -j DROP

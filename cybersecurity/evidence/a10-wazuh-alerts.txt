@@ -1,0 +1,21 @@
+1x	2026-11-09T22:46:48	monitor01	502	3	Wazuh server started.	
+1x	2026-11-09T22:46:56	srv01	651	3	Host Blocked by firewall-drop Active Response	192.168.40.10
+8x	2026-11-09T22:45:26	monitor01	5402	3	Successful sudo to ROOT executed.	
+13x	2026-11-09T22:45:24	monitor01	5501	3	PAM: Login session opened.	
+2x	2026-11-09T22:45:10	dmz-web01	5501	3	PAM: Login session opened.	
+11x	2026-11-09T22:45:26	monitor01	5502	3	PAM: Login session closed.	
+1x	2026-11-09T22:45:20	dmz-web01	5502	3	PAM: Login session closed.	
+12x	2026-11-09T22:44:12	srv01	5710	5	sshd: Attempt to login using a non-existent user	192.168.40.10
+1x	2026-11-09T22:46:54	srv01	5712	10	sshd: brute force trying to get access to the system. Non existent user.	192.168.40.10
+3x	2026-11-09T22:45:10	dmz-web01	5715	3	sshd: authentication success.	
+5x	2026-11-09T22:45:24	monitor01	5715	3	sshd: authentication success.	10.0.2.2
+2x	2026-11-09T22:46:52	srv01	5718	5	sshd: Attempt to login using a denied user.	192.168.40.10
+39x	2026-11-09T22:44:14	srv01	12105	4	Unexpected error while resolving domain.	
+1x	2026-11-09T22:47:10	monitor01	19004	7	SCA summary: CIS Ubuntu Linux 22.04 LTS Benchmark v2.0.0.: Score less than 50% (49)	
+1x	2026-11-09T22:47:01	monitor01	19010	3	CIS Ubuntu Linux 22.04 LTS Benchmark v2.0.0.: Ensure nftables default deny firewall policy.: Status changed from failed to passed	
+2x	2026-11-09T22:47:01	monitor01	19011	9	CIS Ubuntu Linux 22.04 LTS Benchmark v2.0.0.: Ensure ufw is uninstalled or disabled with iptables.: Status changed from passed to failed	
+24x	2026-11-09T22:44:03	dmz-web01	31101	5	Web server 400 error code.	192.168.40.10
+24x	2026-11-09T22:44:04	srv01	31101	5	Web server 400 error code.	192.168.40.10
+1x	2026-11-09T22:44:04	dmz-web01	31151	10	Multiple web server 400 error codes from same source ip.	192.168.40.10
+1x	2026-11-09T22:44:04	srv01	31151	10	Multiple web server 400 error codes from same source ip.	192.168.40.10
+2736x	2026-11-09T22:40:00	monitor01	86601	3	Suricata: Alert - PEL LAB Possible TCP port scan (SYN sweep)	192.168.40.10

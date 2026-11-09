@@ -1,0 +1,15 @@
+## A1 host discovery 2026-11-09T16:31:06Z
+### 192.168.40.0/24 (ICMP echo + TCP 22/80/443 SYN + ARP on the local segment)
+Host: 192.168.40.1 ()	Status: Up
+Host: 192.168.40.10 ()	Status: Up
+# Nmap done at Mon Nov  9 11:31:08 2026 -- 256 IP addresses (2 hosts up) scanned in 2.16 seconds
+### 192.168.20.0/24 (ICMP echo + TCP 22/80/443 SYN + ARP on the local segment)
+Host: 192.168.20.20 ()	Status: Up
+# Nmap done at Mon Nov  9 11:31:13 2026 -- 256 IP addresses (1 host up) scanned in 5.02 seconds
+### 192.168.50.0/24 (ICMP echo + TCP 22/80/443 SYN + ARP on the local segment)
+Host: 192.168.50.10 ()	Status: Up
+# Nmap done at Mon Nov  9 11:31:18 2026 -- 256 IP addresses (1 host up) scanned in 4.17 seconds
+### 192.168.30.0/24 (ICMP echo + TCP 22/80/443 SYN + ARP on the local segment)
+# Nmap done at Mon Nov  9 11:34:44 2026 -- 256 IP addresses (0 hosts up) scanned in 206.38 seconds
+### 192.168.10.0/24 (ICMP echo + TCP 22/80/443 SYN + ARP on the local segment)
+# Nmap done at Mon Nov  9 11:38:10 2026 -- 256 IP addresses (0 hosts up) scanned in 206.40 seconds

@@ -1,0 +1,11 @@
+[2026-11-09T16:44:57Z] 1 SYN port sweep of srv01 (expect sid 9000001 + ET SCAN)
+[2026-11-09T16:45:02Z] 2 NULL and XMAS scans of srv01 (expect sid 9000002 / 9000003)
+[2026-11-09T16:45:06Z] 3 web scanner user-agents against both web servers (expect sid 9000040)
+[2026-11-09T16:45:06Z] 4 suspicious DNS: long random labels like DNS tunnelling (expect sid 9000010) and a query burst (9000011)
+[2026-11-09T16:45:16Z] 5 SSH password guessing against srv01 with invalid and valid user names (expect sid 9000020, Wazuh 5710/5712/5763)
+[DATA] max 4 tasks per 1 server, overall 4 tasks, 36 login tries (l:6/p:6), ~9 tries per task
+[DATA] attacking ssh://192.168.20.20:22/
+[ERROR] target ssh://192.168.20.20:22/ does not support password authentication (method reply 4).
+[2026-11-09T16:45:18Z] 6 check: is kali01 now blocked by Wazuh active response on srv01?
+[2026-11-09T16:45:18Z]    srv01:22 still reachable
+[2026-11-09T16:45:18Z] done

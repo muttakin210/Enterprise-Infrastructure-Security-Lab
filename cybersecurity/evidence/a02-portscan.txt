@@ -1,0 +1,52 @@
+## A2 full TCP port scan 2026-11-09T16:38:10Z
+# Nmap 7.95 scan initiated Mon Nov  9 11:38:11 2026 as: /usr/lib/nmap/nmap -sS -p- -n --min-rate 800 -T4 -oN - 192.168.20.20 192.168.50.10
+Nmap scan report for 192.168.20.20
+Host is up (0.011s latency).
+Not shown: 65531 filtered tcp ports (no-response)
+PORT    STATE  SERVICE
+22/tcp  open   ssh
+53/tcp  open   domain
+80/tcp  open   http
+443/tcp closed https
+
+Nmap scan report for 192.168.50.10
+Host is up (0.016s latency).
+Not shown: 65533 filtered tcp ports (no-response)
+PORT    STATE  SERVICE
+80/tcp  open   http
+443/tcp closed https
+
+# Nmap done at Mon Nov  9 11:43:39 2026 -- 2 IP addresses (2 hosts up) scanned in 328.63 seconds
+## A2b top UDP ports
+# Nmap 7.95 scan initiated Mon Nov  9 11:43:39 2026 as: /usr/lib/nmap/nmap -sU --top-ports 25 -n -T4 -oN - 192.168.20.20 192.168.50.10
+Nmap scan report for 192.168.50.10
+Host is up (0.0062s latency).
+
+PORT      STATE         SERVICE
+53/udp    open|filtered domain
+67/udp    open|filtered dhcps
+68/udp    open|filtered dhcpc
+69/udp    open|filtered tftp
+111/udp   open|filtered rpcbind
+123/udp   open|filtered ntp
+135/udp   open|filtered msrpc
+137/udp   open|filtered netbios-ns
+138/udp   open|filtered netbios-dgm
+139/udp   open|filtered netbios-ssn
+161/udp   open|filtered snmp
+162/udp   open|filtered snmptrap
+445/udp   open|filtered microsoft-ds
+500/udp   open|filtered isakmp
+514/udp   open|filtered syslog
+520/udp   open|filtered route
+631/udp   open|filtered ipp
+998/udp   open|filtered puparp
+1434/udp  open|filtered ms-sql-m
+1701/udp  open|filtered L2TP
+1900/udp  open|filtered upnp
+4500/udp  open|filtered nat-t-ike
+5353/udp  open|filtered zeroconf
+49152/udp open|filtered unknown
+49154/udp open|filtered unknown
+
+# Nmap done at Mon Nov  9 11:43:42 2026 -- 2 IP addresses (1 host up) scanned in 3.18 seconds

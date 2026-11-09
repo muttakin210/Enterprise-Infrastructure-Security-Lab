@@ -3,7 +3,7 @@
 
   - Suricata alerts:   /var/log/suricata/eve.json            (json)   -> Wazuh Suricata rules 86600+
   - pfSense syslog:    /var/log/remote/all-devices.log           (syslog) -> pf filterlog decoders
-  - Active response:   firewall-drop for 10 min on SSH brute force (rule 5763) on the agent that saw it
+  - Active response:   firewall-drop for 10 min on SSH brute force (rules 5712 invalid users, 5763 failed passwords) on the agent that saw it
 usage: wazuh-manager-config.py /var/ossec/etc/ossec.conf
 """
 import sys
@@ -29,7 +29,7 @@ block = f"""
   <active-response>
     <command>firewall-drop</command>
     <location>local</location>
-    <rules_id>5763</rules_id>
+    <rules_id>5712,5763</rules_id>
     <timeout>600</timeout>
   </active-response>
 </ossec_config>
